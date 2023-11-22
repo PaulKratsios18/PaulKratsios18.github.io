@@ -8,11 +8,12 @@ body, h1, h2, h3, p, ul {
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  background-color: #a399a3; /* Background color for the body */
 }
 
 /* Navigation header styles */
 header {
-  background-color: #333;
+  background-color: #456a93; /* Background color for the header */
   color: #fff;
   padding: 20px;
 }
@@ -31,15 +32,15 @@ header {
 }
 
 .navigation a:hover {
-  color: #ff9900; /* Change this to your desired hover color */
+  color: #ff8965; /* Hover color for the navigation links */
 }
 
 .navigation span {
-  color: #ff9900; /* Color for the words */
+  color: #ff8965; /* Color for the words */
 }
 
 .resume-box {
-  background-color: #ff9900;
+  background-color: #ff8965; /* Background color for the resume box */
   color: #333;
   padding: 8px 12px;
   border-radius: 5px;
@@ -50,5 +51,5 @@ header {
 }
 
 .resume-box:hover {
-  background-color: #e58300; /* Change this to your desired hover color */
+  background-color: #00ffff; /* Hover color for the resume box */
 }
