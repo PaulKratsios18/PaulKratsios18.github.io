@@ -7,15 +7,22 @@
 /* Media queries for different screen sizes */
 @media (max-width: 1199px) {
   .u-title {
-    font-size: 2rem; /* Adjusted font size for smaller screens */
+    font-size: 2.5rem; /* Adjusted font size for medium-sized screens */
   }
 }
 
 @media (max-width: 991px) {
   .u-title {
-    font-size: 1.5rem; /* Adjusted font size for medium-sized screens */
+    font-size: 2rem; /* Adjusted font size for smaller screens */
   }
 }
+
+@media (max-width: 767px) {
+  .u-title {
+    font-size: 1.5rem; /* Adjusted font size for even smaller screens */
+  }
+}
+
 
 .u-section-1 {
   background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("images/DALLE2023-01-0414.49.46-artificialintelligencebrainneuronsmadewithcpucircuits3drenderingwithdeepblue-greybackgroundandorangelighting.png");
