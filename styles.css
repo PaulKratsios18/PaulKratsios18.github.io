@@ -64,6 +64,7 @@ header {
   font-family: monospace;
   color: #9b8aff; /* Muted lavender/grey color for "Hi, my name is" */
   font-size: 14px; /* Smaller font size for intro text */
+  margin-left: 80px; /* Shift "Paul Kratsios" off the left side */
 }
 
 
