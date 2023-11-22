@@ -26,19 +26,16 @@ header {
 }
 
 .navigation a {
-  color: #fff;
+  color: #999; /* Muted grey for the text */
   text-decoration: none;
   font-size: 16px;
   margin-left: 20px; /* Add spacing between navigation links */
   transition: color 0.3s ease;
+  font-family: monospace; /* Use monospace font */
 }
 
 .navigation a:hover {
   color: #00ffff; /* Hover color for the navigation links */
-}
-
-.navigation span {
-  color: #00ffff; /* Color for the words */
 }
 
 .resume-box {
@@ -78,18 +75,19 @@ header {
 
 /* About section styles */
 #intro, #name {
-  margin-left: 60px;
+  margin-left: 60px; /* Adjusted margin */
 }
 
 #intro span {
   font-family: monospace;
-  color: #00ffff;
+  color: #00ffff; /* Teal color for "Hi, my name is" */
+  font-size: 16px; /* Adjust font size */
 }
 
 #name h1 {
   font-size: 100px;
-  color: #ddd;
+  color: #ddd; /* Muted grey for the name */
   margin-top: 0;
   margin-bottom: 5px;
-  font-family: Arial, sans-serif;
+  font-family: monospace; /* Use monospace font */
 }
