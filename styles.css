@@ -38,7 +38,7 @@ header {
 }
 
 .navigation span {
-  color: #fff; /* Color for the words */
+  color: #00ffff; /* Color for the words */
 }
 
 .resume-box {
@@ -55,4 +55,22 @@ header {
 
 .resume-box:hover {
   background-color: #00ffff; /* Hover color for the resume box */
+}
+
+/* About section styles */
+#intro, #name {
+  margin-left: 60px;
+}
+
+#intro span {
+  font-family: monospace;
+  color: #00ffff;
+}
+
+#name h1 {
+  font-size: 100px;
+  color: #ddd;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-family: Arial, sans-serif;
 }
