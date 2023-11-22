@@ -66,13 +66,16 @@ header {
   font-size: 14px; /* Smaller font size for intro text */
 }
 
+
 #name h1 {
   font-size: 80px; /* Adjusted font size for the name */
-  color: #808080; /* Grey color for the name */
+  color: #CED6F3; /* New color for the name */
   margin-top: 0;
   margin-bottom: 5px;
   font-family: monospace; /* Use monospace font */
+  margin-left: -50px; /* Shift "Paul Kratsios" off the left side */
 }
+
 
 /* Section titles */
 section h2 {
