@@ -73,7 +73,7 @@ header {
   margin-top: 0;
   margin-bottom: 5px;
   font-family: monospace; /* Use monospace font */
-  margin-left: -50px; /* Shift "Paul Kratsios" off the left side */
+  margin-left: 80px; /* Shift "Paul Kratsios" off the left side */
 }
 
 
@@ -82,5 +82,5 @@ section h2 {
   color: #000; /* Black color for section titles */
   font-family: monospace; /* Use monospace font */
   font-size: 16px; /* Adjust font size for section titles */
-  margin-left: 60px; /* Add margin for alignment */
+  margin-left: 80px; /* Add margin for alignment */
 }
