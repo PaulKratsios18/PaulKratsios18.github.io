@@ -26,7 +26,7 @@ header {
 }
 
 .navigation a {
-  color: #999; /* Muted grey for the text */
+  color: #9b8aff; /* Muted lavender/grey for the text */
   text-decoration: none;
   font-size: 16px;
   margin-left: 20px; /* Add spacing between navigation links */
@@ -47,30 +47,12 @@ header {
   text-decoration: none;
   font-family: monospace;
   font-size: 14px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease;
   position: relative;
 }
 
 .resume-box:hover {
-  background-color: #00ffff; /* Hover color for the resume box */
   transform: translateY(-3px); /* Elevate the box slightly on hover */
-}
-
-.resume-box:before {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
-  background-color: #00ffff; /* Partially filled box color */
-  z-index: -1;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-}
-
-.resume-box:hover:before {
-  opacity: 0.3; /* Show partially filled box on hover */
 }
 
 /* About section styles */
@@ -80,14 +62,31 @@ header {
 
 #intro span {
   font-family: monospace;
-  color: #00ffff; /* Teal color for "Hi, my name is" */
+  color: #9b8aff; /* Muted lavender/grey color for "Hi, my name is" */
   font-size: 16px; /* Adjust font size */
 }
 
 #name h1 {
   font-size: 100px;
-  color: #ddd; /* Muted grey for the name */
+  color: #000; /* Black color for the name */
   margin-top: 0;
   margin-bottom: 5px;
   font-family: monospace; /* Use monospace font */
+}
+
+/* Section titles */
+section h2 {
+  color: #000; /* Black color for section titles */
+  font-family: monospace; /* Use monospace font */
+  font-size: 24px; /* Adjust font size */
+  margin-left: 50px; /* Add margin for alignment */
+}
+
+.navigation a:first-child::before,
+.navigation a:nth-child(2)::before,
+.navigation a:nth-child(3)::before,
+.navigation a:nth-child(4)::before,
+.navigation a:last-child::before {
+  content: attr(href) ". ";
+  color: #9b8aff; /* Teal color for the numbers */
 }
