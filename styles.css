@@ -16,7 +16,7 @@ body {
 /* Navigation header styles */
 header {
   background-color: #0D192D; /* Background color for the header */
-  color: #fff;
+  color: #00ffff; /* Header text color */
   padding: 20px;
 }
 
@@ -27,24 +27,25 @@ header {
 }
 
 .navigation a {
-  color: #fff;
+  color: #00ffff; /* Text color for the navigation links */
   text-decoration: none;
   font-size: 18px;
   transition: color 0.3s ease;
 }
 
 .navigation a:hover {
-  color: #00ffff; /* Hover color for the navigation links */
+  color: #fff; /* Hover color for the navigation links */
 }
 
 .navigation span {
-  color: #00ffff; /* Color for the words */
+  color: #fff; /* Color for the words */
 }
 
 .resume-box {
-  background-color: #00ffff; /* Background color for the resume box */
-  color: #0D192D;
-  padding: 8px 12px;
+  background-color: transparent; /* Transparent background for the resume box */
+  border: 2px solid #00ffff; /* Border for the resume box */
+  color: #00ffff; /* Text color for the resume box */
+  padding: 6px 10px;
   border-radius: 5px;
   text-decoration: none;
   font-family: monospace;
@@ -53,5 +54,26 @@ header {
 }
 
 .resume-box:hover {
-  background-color: #456a93; /* Hover color for the resume box */
+  background-color: #00ffff; /* Hover background color for the resume box */
+  color: #0D192D; /* Hover text color for the resume box */
+}
+
+/* Additional text styles */
+#intro {
+  text-align: center;
+  font-family: monospace;
+  color: #ccc; /* Color for small intro text */
+  margin-top: 20px;
+}
+
+#intro span {
+  font-size: 24px;
+}
+
+#name {
+  text-align: center;
+  font-size: 48px;
+  color: #ddd; /* Color for big name text */
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
 }
