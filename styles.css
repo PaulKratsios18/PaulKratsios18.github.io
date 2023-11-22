@@ -4,20 +4,25 @@ body, h1, h2, h3, p, ul {
   padding: 0;
 }
 
-/* Basic styles */
+/* Set background color for the entire page */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #a399a3; /* Background color for the body */
+  background-color: #0D192D; /* Background color for the entire page */
+  margin: 0; /* Remove default margin */
+}
+
+/* Remove margin from sections */
+section {
+  margin-top: 0; /* Remove top margin for sections */
 }
 
 /* Navigation header styles */
 header {
-  background-color: #456a93 !important; /* Background color for the header */
+  background-color: #456a93; /* Background color for the header */
   color: #fff;
   padding: 20px;
 }
-
 
 .navigation {
   display: flex;
