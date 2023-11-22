@@ -13,10 +13,11 @@ body {
 
 /* Navigation header styles */
 header {
-  background-color: #456a93; /* Background color for the header */
+  background-color: #456a93 !important; /* Background color for the header */
   color: #fff;
   padding: 20px;
 }
+
 
 .navigation {
   display: flex;
