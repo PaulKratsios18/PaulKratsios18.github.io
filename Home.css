@@ -1,4 +1,32 @@
- .u-section-1 {
+.u-title {
+  font-size: 18vw; /* Set an initial font size relative to the viewport width */
+}
+
+@media (max-width: 1199px) {
+  .u-title {
+    font-size: 10vw; /* Modify the font size for smaller screens */
+  }
+}
+
+@media (max-width: 991px) {
+  .u-title {
+    font-size: 12vw; /* Adjust font size for medium-sized screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .u-title {
+    font-size: 16vw; /* Adjust font size for smaller devices */
+  }
+}
+
+@media (max-width: 575px) {
+  .u-title {
+    font-size: 24vw; /* Adjust font size for extra small screens */
+  }
+}
+
+.u-section-1 {
   background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("images/DALLE2023-01-0414.49.46-artificialintelligencebrainneuronsmadewithcpucircuits3drenderingwithdeepblue-greybackgroundandorangelighting.png");
 }
 
