@@ -28,7 +28,7 @@ header {
 .navigation a {
   color: #9b8aff; /* Muted lavender/grey for the text */
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px; /* Smaller font size for navigation links */
   margin-left: 20px; /* Add spacing between navigation links */
   transition: color 0.3s ease;
   font-family: monospace; /* Use monospace font */
@@ -63,12 +63,12 @@ header {
 #intro span {
   font-family: monospace;
   color: #9b8aff; /* Muted lavender/grey color for "Hi, my name is" */
-  font-size: 16px; /* Adjust font size */
+  font-size: 14px; /* Smaller font size for intro text */
 }
 
 #name h1 {
-  font-size: 100px;
-  color: #000; /* Black color for the name */
+  font-size: 80px; /* Adjusted font size for the name */
+  color: #808080; /* Grey color for the name */
   margin-top: 0;
   margin-bottom: 5px;
   font-family: monospace; /* Use monospace font */
@@ -78,6 +78,6 @@ header {
 section h2 {
   color: #000; /* Black color for section titles */
   font-family: monospace; /* Use monospace font */
-  font-size: 24px; /* Adjust font size */
+  font-size: 16px; /* Adjust font size for section titles */
   margin-left: 60px; /* Add margin for alignment */
 }
