@@ -28,7 +28,7 @@ header {
 .navigation a {
   color: #9b8aff; /* Muted lavender/grey for the text */
   text-decoration: none;
-  font-size: 14px; /* Smaller font size for navigation links */
+  font-size: 11px; /* Smaller font size for navigation links */
   margin-left: 20px; /* Add spacing between navigation links */
   transition: color 0.3s ease;
   font-family: monospace; /* Use monospace font */
@@ -46,7 +46,7 @@ header {
   border-radius: 5px;
   text-decoration: none;
   font-family: monospace;
-  font-size: 14px;
+  font-size: 11px;
   transition: transform 0.3s ease;
   position: relative;
 }
@@ -57,14 +57,13 @@ header {
 
 /* About section styles */
 #intro {
-  margin-left: 60px; /* Adjusted margin */
+  margin-left: 80px; /* Adjusted margin */
 }
 
 #intro span {
   font-family: monospace;
   color: #9b8aff; /* Muted lavender/grey color for "Hi, my name is" */
   font-size: 14px; /* Smaller font size for intro text */
-  margin-left: 80px; /* Shift "Paul Kratsios" off the left side */
 }
 
 
