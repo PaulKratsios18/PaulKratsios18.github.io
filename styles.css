@@ -50,11 +50,30 @@ header {
   text-decoration: none;
   font-family: monospace;
   font-size: 14px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
 }
 
 .resume-box:hover {
   background-color: #00ffff; /* Hover color for the resume box */
+  transform: translateY(-3px); /* Elevate the box slightly on hover */
+}
+
+.resume-box:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background-color: #00ffff; /* Partially filled box color */
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.resume-box:hover:before {
+  opacity: 0.3; /* Show partially filled box on hover */
 }
 
 /* About section styles */
