@@ -79,12 +79,5 @@ section h2 {
   color: #000; /* Black color for section titles */
   font-family: monospace; /* Use monospace font */
   font-size: 24px; /* Adjust font size */
-  margin-left: 50px; /* Add margin for alignment */
+  margin-left: 60px; /* Add margin for alignment */
 }
-
-.navigation a::before {
-  content: attr(href) ". ";
-  color: #9b8aff; /* Teal color for the numbers */
-  font-family: monospace; /* Use monospace font */
-}
- 
