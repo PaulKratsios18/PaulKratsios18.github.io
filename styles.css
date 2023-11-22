@@ -4,48 +4,47 @@ body, h1, h2, h3, p, ul {
   padding: 0;
 }
 
-/* Set background color for the entire page */
+/* Basic styles */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #0D192D; /* Background color for the entire page */
-  margin: 0; /* Remove default margin */
-  color: #fff; /* Text color for the entire page */
+  background-color: #0D192D; /* Background color for the body */
 }
 
 /* Navigation header styles */
 header {
   background-color: #0D192D; /* Background color for the header */
-  color: #00ffff; /* Header text color */
+  color: #fff;
   padding: 20px;
+  text-align: right; /* Right justify the header */
 }
 
 .navigation {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Right justify the navigation links */
   align-items: center;
 }
 
 .navigation a {
-  color: #00ffff; /* Text color for the navigation links */
+  color: #fff;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px; /* Shrink the size of the text */
   transition: color 0.3s ease;
 }
 
 .navigation a:hover {
-  color: #fff; /* Hover color for the navigation links */
+  color: #00ffff; /* Hover color for the navigation links */
 }
 
 .navigation span {
-  color: #fff; /* Color for the words */
+  color: #00ffff; /* Color for the numbers */
 }
 
 .resume-box {
-  background-color: transparent; /* Transparent background for the resume box */
-  border: 2px solid #00ffff; /* Border for the resume box */
-  color: #00ffff; /* Text color for the resume box */
-  padding: 6px 10px;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  background-color: transparent;
+  padding: 8px 12px;
   border-radius: 5px;
   text-decoration: none;
   font-family: monospace;
@@ -54,26 +53,5 @@ header {
 }
 
 .resume-box:hover {
-  background-color: #00ffff; /* Hover background color for the resume box */
-  color: #0D192D; /* Hover text color for the resume box */
-}
-
-/* Additional text styles */
-#intro {
-  text-align: center;
-  font-family: monospace;
-  color: #ccc; /* Color for small intro text */
-  margin-top: 20px;
-}
-
-#intro span {
-  font-size: 24px;
-}
-
-#name {
-  text-align: center;
-  font-size: 48px;
-  color: #ddd; /* Color for big name text */
-  margin-top: 10px;
-  font-family: Arial, sans-serif;
+  background-color: #00ffff; /* Hover color for the resume box */
 }
