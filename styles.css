@@ -28,7 +28,8 @@ header {
 .navigation a {
   color: #fff;
   text-decoration: none;
-  font-size: 16px; /* Shrink the size of the text */
+  font-size: 16px;
+  margin-left: 20px; /* Add spacing between navigation links */
   transition: color 0.3s ease;
 }
 
