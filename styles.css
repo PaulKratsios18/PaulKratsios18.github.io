@@ -10,16 +10,12 @@ body {
   line-height: 1.6;
   background-color: #0D192D; /* Background color for the entire page */
   margin: 0; /* Remove default margin */
-}
-
-/* Remove margin from sections */
-section {
-  margin-top: 0; /* Remove top margin for sections */
+  color: #fff; /* Text color for the entire page */
 }
 
 /* Navigation header styles */
 header {
-  background-color: #456a93; /* Background color for the header */
+  background-color: #0D192D; /* Background color for the header */
   color: #fff;
   padding: 20px;
 }
@@ -38,16 +34,16 @@ header {
 }
 
 .navigation a:hover {
-  color: #ff8965; /* Hover color for the navigation links */
+  color: #00ffff; /* Hover color for the navigation links */
 }
 
 .navigation span {
-  color: #ff8965; /* Color for the words */
+  color: #00ffff; /* Color for the words */
 }
 
 .resume-box {
-  background-color: #ff8965; /* Background color for the resume box */
-  color: #333;
+  background-color: #00ffff; /* Background color for the resume box */
+  color: #0D192D;
   padding: 8px 12px;
   border-radius: 5px;
   text-decoration: none;
@@ -57,5 +53,5 @@ header {
 }
 
 .resume-box:hover {
-  background-color: #00ffff; /* Hover color for the resume box */
+  background-color: #456a93; /* Hover color for the resume box */
 }
