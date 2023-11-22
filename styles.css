@@ -82,11 +82,8 @@ section h2 {
   margin-left: 50px; /* Add margin for alignment */
 }
 
-.navigation a:first-child::before,
-.navigation a:nth-child(2)::before,
-.navigation a:nth-child(3)::before,
-.navigation a:nth-child(4)::before,
-.navigation a:last-child::before {
+.navigation a::before {
   content: attr(href) ". ";
   color: #9b8aff; /* Teal color for the numbers */
+  font-family: monospace; /* Use monospace font */
 }
