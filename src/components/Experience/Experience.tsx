@@ -25,7 +25,7 @@ const Experience = () => {
       logo: `${process.env.PUBLIC_URL}/assets/images/companies/parkbridge.jpg`,
       bullets: [
         'Collected and organized essential data from over 100 commercial mortgage-backed security contracts',
-        'Used Excel VBA to aggregate, arrange, and format data from multiple sources'
+        'Utilized Excel VBA to aggregate, arrange, and format data from multiple sources'
       ]
     },
     {

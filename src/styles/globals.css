@@ -136,6 +136,8 @@ section h2 {
   margin-bottom: 1rem;
   color: var(--text-color);
   opacity: 0.9;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .about-text p:last-child {
@@ -1273,5 +1275,15 @@ main {
 
 .name-container.shrink .space {
   width: 0;
+}
+
+.project-card p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.expanded-project-content p {
+  text-align: justify;
+  text-justify: inter-word;
 }
 

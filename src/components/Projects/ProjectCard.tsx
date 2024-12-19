@@ -42,7 +42,7 @@ const ProjectCard = ({
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Thumbnail handling
-  const thumbnailPath = `${process.env.PUBLIC_URL}${image}`;
+  const thumbnailPath = `${process.env.PUBLIC_URL}/${image}`;
 
   // Expanded view media handling (prioritize videos, then additional images)
   const allMedia = [
