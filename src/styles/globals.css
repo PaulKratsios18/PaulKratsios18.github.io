@@ -874,17 +874,33 @@ main {
   position: relative;
   background: var(--card-background);
   padding: 2rem;
-  border-radius: 1rem;
-  max-width: 90vw;
+  border-radius: 0.5rem;
+  max-width: 90%;
   width: 900px;
   max-height: 90vh;
   overflow-y: auto;
 }
 
+.expanded-project-content.no-media {
+  max-width: 700px;
+}
+
 .expanded-project-content .expanded-title {
-  margin: 0 0 1rem 0;
-  font-size: 2rem;
+  margin-bottom: 2rem;
   text-align: center;
+  max-width: calc(100% - 14rem);
+  margin-left: auto;
+  margin-right: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.expanded-project-content .project-links {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .expanded-project-content .tagline {

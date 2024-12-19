@@ -43,11 +43,11 @@ const ProjectCard = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Thumbnail handling
-  const thumbnailPath = `${process.env.PUBLIC_URL}/${image}`;
-
+  // Only create media items if there are videos or images
+  const hasMedia = videos.length > 0 || additionalImages.length > 0;
+  
   // Expanded view media handling (prioritize videos, then additional images)
-  const allMedia = [
+  const allMedia = hasMedia ? [
     ...videos.map(video => 
       typeof video === 'string' 
         ? { url: video, caption: '', type: '' } 
@@ -58,12 +58,15 @@ const ProjectCard = ({
         ? { url: img, caption: '', type: '' } 
         : img
     )
-  ].slice(0, 5);
+  ].slice(0, 5) : [];
 
   const mediaItems = allMedia.map(item => ({
     ...item,
-    url: item.type === 'youtube' ? item.url : `${process.env.PUBLIC_URL}${item.url}`
+    url: item.type === 'youtube' ? item.url : `${process.env.PUBLIC_URL}/${item.url}`
   }));
+
+  // Thumbnail handling
+  const thumbnailPath = image ? `${process.env.PUBLIC_URL}/${image}` : null;
 
   const nextSlide = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -119,9 +122,11 @@ const ProjectCard = ({
         onClick={() => setIsExpanded(true)}
         style={{ cursor: 'pointer' }}
       >
-        <div className="project-image">
-          <img src={thumbnailPath} alt={title} />
-        </div>
+        {thumbnailPath && (
+          <div className="project-image">
+            <img src={thumbnailPath} alt={title} />
+          </div>
+        )}
         <div className="project-content">
           <h3>{title}</h3>
           <p>{description}</p>
@@ -182,51 +187,53 @@ const ProjectCard = ({
 
               <h2 className="expanded-title">{title}</h2>
 
-              <div className="media-carousel">
-                {mediaItems.length > 1 && (
-                  <>
-                    <button className="carousel-button prev" onClick={prevSlide}>
-                      <FaChevronLeft />
-                    </button>
-                    <button className="carousel-button next" onClick={nextSlide}>
-                      <FaChevronRight />
-                    </button>
-                  </>
-                )}
-                
-                <div className="media-container">
-                  {isVideo(mediaItems[currentSlide].url, mediaItems[currentSlide].type) ? (
-                    <div className="media-wrapper">
-                      {renderMedia(
-                        mediaItems[currentSlide].url, 
-                        mediaItems[currentSlide].type,
-                        `${title} - ${mediaItems[currentSlide].caption || 'video'}`
-                      )}
-                    </div>
-                  ) : (
-                    <div className="media-wrapper">
-                      <img 
-                        src={mediaItems[currentSlide].url} 
-                        alt={`${title} - ${currentSlide + 1}`} 
-                      />
-                      {mediaItems[currentSlide].caption && (
-                        <p className="media-caption">{mediaItems[currentSlide].caption}</p>
-                      )}
-                    </div>
+              {hasMedia && mediaItems.length > 0 && (
+                <div className="media-carousel">
+                  {mediaItems.length > 1 && (
+                    <>
+                      <button className="carousel-button prev" onClick={prevSlide}>
+                        <FaChevronLeft />
+                      </button>
+                      <button className="carousel-button next" onClick={nextSlide}>
+                        <FaChevronRight />
+                      </button>
+                    </>
                   )}
-                </div>
+                  
+                  <div className="media-container">
+                    {isVideo(mediaItems[currentSlide].url, mediaItems[currentSlide].type) ? (
+                      <div className="media-wrapper">
+                        {renderMedia(
+                          mediaItems[currentSlide].url, 
+                          mediaItems[currentSlide].type,
+                          `${title} - ${mediaItems[currentSlide].caption || 'video'}`
+                        )}
+                      </div>
+                    ) : (
+                      <div className="media-wrapper">
+                        <img 
+                          src={mediaItems[currentSlide].url} 
+                          alt={`${title} - ${currentSlide + 1}`} 
+                        />
+                        {mediaItems[currentSlide].caption && (
+                          <p className="media-caption">{mediaItems[currentSlide].caption}</p>
+                        )}
+                      </div>
+                    )}
+                  </div>
 
-                <div className="media-indicators">
-                  {mediaItems.map((_, index) => (
-                    <button
-                      key={index}
-                      className={`indicator ${currentSlide === index ? 'active' : ''}`}
-                      onClick={() => handleIndicatorClick(index)}
-                      aria-label={`View media ${index + 1}`}
-                    />
-                  ))}
+                  <div className="media-indicators">
+                    {mediaItems.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`indicator ${currentSlide === index ? 'active' : ''}`}
+                        onClick={() => handleIndicatorClick(index)}
+                        aria-label={`View media ${index + 1}`}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               <div className="project-details">
                 <p className="detailed-description">{detailedDescription}</p>

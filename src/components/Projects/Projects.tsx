@@ -70,11 +70,19 @@ const Projects = () => {
       image: 'assets/images/hirofit/thumbnail.png',
       additionalImages: [
         {
-          url: 'assets/images/hirofit/workoutselection.png',
+          url: 'assets/images/hirofit/homepage.png',
+          caption: 'Homepage'
+        },
+        {
+          url: 'assets/images/hirofit/workoutSelection.png',
           caption: 'Workout Selection Screen'
         },
         {
-          url: 'assets/images/hirofit/cameraview.png',
+          url: 'assets/images/hirofit/reps&Sets.png',
+          caption: 'Reps & Sets'
+        },
+        {
+          url: 'assets/images/hirofit/cameraView2.png',
           caption: 'Camera View'
         },
         {
@@ -89,7 +97,7 @@ const Projects = () => {
       description: 'Research project exploring reinforcement learning agents\' adaptation to uncertainty in variations of the Monty Hall problem.',
       detailedDescription: 'A dual-learning algorithm enables agents to optimize their decision-making while modeling the cognitive traits of other agents. The project includes analysis of different decision-making strategies in uncertain environments.',
       technologies: ['Python', 'TensorFlow', 'Reinforcement Learning', 'Probability Theory'],
-      image: '/assets/images/agents/agentlearning.png',
+      // image: '/assets/images/agents/agentlearning.png',
       github: 'https://github.com/PaulKratsios18/AdaptiveAgentsInUncertainEnvironments'
     },
     {
@@ -97,7 +105,7 @@ const Projects = () => {
       description: 'A sophisticated computer vision system designed to track hockey pucks and analyze stick movements in real-time.',
       detailedDescription: 'Leverages advanced image processing and machine learning techniques for precise puck detection and tracking. The system includes stick movement analysis for comprehensive training insights and features a user-friendly interface for visualizing tracking results.',
       technologies: ['Python', 'OpenCV', 'Machine Learning', 'Computer Vision'],
-      image: '/assets/images/hockey/tracking.png',
+      // image: '/assets/images/hockey/tracking.png',
       github: 'https://github.com/PaulKratsios18/HockeyPuckTrackingSystem'
     }
   ];
