@@ -65,9 +65,18 @@ const Projects = () => {
       technologies: ['Swift', 'iOS', 'Computer Vision', 'Machine Learning'],
       image: '/assets/images/hirofit/thumbnail.png',
       additionalImages: [
-        '/assets/images/hirofit/workoutselection.png',
-        '/assets/images/hirofit/cameraview.png',
-        '/assets/images/hirofit/results.png'
+        {
+          url: '/assets/images/hirofit/workoutselection.png',
+          caption: 'Workout Selection Screen'
+        },
+        {
+          url: '/assets/images/hirofit/cameraview.png',
+          caption: 'Camera View'
+        },
+        {
+          url: '/assets/images/hirofit/results.png',
+          caption: 'Results Screen'
+        }
       ],
       github: 'https://github.com/PaulKratsios18/HiroFit'
     },
