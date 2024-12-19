@@ -458,35 +458,55 @@ section h2 {
   display: none;
   background: none;
   border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 1002;
+  width: 40px;
+  height: 40px;
+  position: relative;
 }
 
 .hamburger {
-  display: block;
   width: 24px;
-  height: 2px;
-  background: var(--text-color);
-  position: relative;
-  transition: all 0.3s ease;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hamburger::before,
-.hamburger::after {
+.hamburger::after,
+.hamburger span {
   content: '';
-  position: absolute;
-  width: 24px;
+  display: block;
+  width: 100%;
   height: 2px;
-  background: var(--text-color);
+  background-color: var(--text-color);
   transition: all 0.3s ease;
 }
 
 .hamburger::before {
-  top: -6px;
+  content: '';
+  position: absolute;
+  top: 0;
+}
+
+.hamburger span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .hamburger::after {
-  bottom: -6px;
+  content: '';
+  position: absolute;
+  bottom: 0;
 }
 
 main {
@@ -921,53 +941,36 @@ main {
 }
 
 .media-container {
+  position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 300px;
-  max-height: 60vh;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  background-color: var(--card-background);
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .media-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  position: relative;
-  padding-bottom: 4rem; /* Space for indicators and caption */
+  height: 100%;
 }
 
-.media-container img,
-.media-container video {
+.media-wrapper iframe,
+.media-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  max-height: calc(60vh - 6rem); /* Account for indicators and caption */
+  height: 100%;
+  border: none;
+}
+
+.media-wrapper img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  background-color: var(--card-background);
-}
-
-.media-indicators {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-  z-index: 2;
-}
-
-.media-caption {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  text-align: center;
-  font-style: italic;
-  padding: 0 1rem;
 }
 
 .carousel-button {
@@ -1008,6 +1011,13 @@ main {
   object-fit: contain;
   max-height: 60vh;
   background-color: var(--card-background);
+}
+
+.media-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .media-indicators .indicator {
@@ -1285,5 +1295,105 @@ main {
 .expanded-project-content p {
   text-align: justify;
   text-justify: inter-word;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--card-background);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  background: var(--card-background);
+  padding: 2rem;
+  z-index: 1001;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  height: 100vh;
+}
+
+.mobile-menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  height: 100%;
+}
+
+.mobile-menu-item {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.mobile-menu-item:hover {
+  color: var(--primary-color);
+}
+
+@media (max-width: 1024px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-content {
+    justify-content: space-between;
+  }
+
+  .social-links {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .name-container:not(.shrink) {
+    font-size: 1.2rem;
+  }
+  
+  .social-links {
+    gap: 1rem;
+  }
 }
 

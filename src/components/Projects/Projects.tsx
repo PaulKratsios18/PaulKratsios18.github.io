@@ -9,32 +9,36 @@ const Projects = () => {
       description: 'A web application designed to make group restaurant decisions fun and collaborative by letting users swipe left or right on restaurant options.',
       detailedDescription: 'Dinder uses advanced ranking and matching algorithms to find the perfect spot for everyone. Users can host or join sessions using unique codes, set preferences like cuisine and price range, and see matches in real-time.',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io'],
-      image: '/assets/images/dinder/thumbnail.png',
+      image: 'assets/images/dinder/thumbnail.png',
       videos: [
         {
-          url: '/assets/videos/dinder/demo-setup.mp4',
-          caption: 'Setting up a new dining session'
+          url: 'https://www.youtube.com/embed/EUaJ0Kr9X80',
+          caption: 'Setting up a new dining session',
+          type: 'youtube'
         },
         {
-          url: '/assets/videos/dinder/demo-match.mp4',
-          caption: 'Finding restaurant matches'
+          url: 'https://www.youtube.com/embed/nt8iajbYHLs',
+          caption: 'Finding restaurant matches',
+          type: 'youtube'
         },
         {
-          url: '/assets/videos/dinder/demo-results.mp4',
-          caption: 'Viewing final results'
+          url: 'https://www.youtube.com/embed/QrlakWh8Lq4',
+          caption: 'Viewing final results',
+          type: 'youtube'
         },
         {
-          url: '/assets/videos/dinder/demo-matchless.mp4',
-          caption: 'Handling no matches scenario'
+          url: 'https://www.youtube.com/embed/5dhCA_Km6TU',
+          caption: 'Handling no matches scenario',
+          type: 'youtube'
         }
       ],
       additionalImages: [
         {
-          url: '/assets/images/dinder/HostLobby-Post-PreferenceSelection.png',
+          url: 'assets/images/dinder/HostLobby-Post-PreferenceSelection.png',
           caption: 'Host lobby interface after preference selection'
         },
         {
-          url: '/assets/images/dinder/MatchScreen.png',
+          url: 'assets/images/dinder/MatchScreen.png',
           caption: 'Match results screen'
         }
       ],
@@ -63,18 +67,18 @@ const Projects = () => {
       description: 'A machine learning-based fitness app that utilizes computer vision to track workouts and provide real-time improvement tips.',
       detailedDescription: 'Led iOS frontend development for HiroFit, creating a user-friendly interface for workout tracking. The app uses computer vision to monitor movements and provides personalized feedback based on performance.',
       technologies: ['Swift', 'iOS', 'Computer Vision', 'Machine Learning'],
-      image: '/assets/images/hirofit/thumbnail.png',
+      image: 'assets/images/hirofit/thumbnail.png',
       additionalImages: [
         {
-          url: '/assets/images/hirofit/workoutselection.png',
+          url: 'assets/images/hirofit/workoutselection.png',
           caption: 'Workout Selection Screen'
         },
         {
-          url: '/assets/images/hirofit/cameraview.png',
+          url: 'assets/images/hirofit/cameraview.png',
           caption: 'Camera View'
         },
         {
-          url: '/assets/images/hirofit/results.png',
+          url: 'assets/images/hirofit/results.png',
           caption: 'Results Screen'
         }
       ],

@@ -12,10 +12,12 @@ interface ProjectCardProps {
   additionalImages?: Array<{
     url: string;
     caption: string;
+    type?: string;
   }>;
   videos?: Array<{
     url: string;
     caption: string;
+    type?: string;
   }>;
   github?: string;
   live?: string;
@@ -48,12 +50,12 @@ const ProjectCard = ({
   const allMedia = [
     ...videos.map(video => 
       typeof video === 'string' 
-        ? { url: video, caption: '' } 
+        ? { url: video, caption: '', type: '' } 
         : video
     ),
     ...additionalImages.map(img => 
       typeof img === 'string' 
-        ? { url: img, caption: '' } 
+        ? { url: img, caption: '', type: '' } 
         : img
     )
   ].slice(0, 5);
@@ -78,8 +80,24 @@ const ProjectCard = ({
   };
 
   // Add this helper function at the top of the component
-  const isVideo = (path: string): boolean => {
-    return path.endsWith('.mp4');
+  const isVideo = (path: string, type?: string): boolean => {
+    return type === 'youtube' || path.endsWith('.mp4');
+  };
+
+  const renderMedia = (url: string, type?: string) => {
+    if (type === 'youtube') {
+      return (
+        <iframe
+          width="100%"
+          height="100%"
+          src={url}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      );
+    }
+    return <video src={url} controls />;
   };
 
   return (
@@ -166,21 +184,9 @@ const ProjectCard = ({
                 )}
                 
                 <div className="media-container">
-                  {isVideo(mediaItems[currentSlide].url) ? (
+                  {isVideo(mediaItems[currentSlide].url, mediaItems[currentSlide].type) ? (
                     <div className="media-wrapper">
-                      <video 
-                        key={mediaItems[currentSlide].url}
-                        autoPlay 
-                        loop 
-                        muted 
-                        controls 
-                        playsInline
-                      >
-                        <source src={mediaItems[currentSlide].url} type="video/mp4" />
-                      </video>
-                      {mediaItems[currentSlide].caption && (
-                        <p className="media-caption">{mediaItems[currentSlide].caption}</p>
-                      )}
+                      {renderMedia(mediaItems[currentSlide].url, mediaItems[currentSlide].type)}
                     </div>
                   ) : (
                     <div className="media-wrapper">
