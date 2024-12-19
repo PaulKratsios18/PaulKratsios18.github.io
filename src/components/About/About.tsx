@@ -10,14 +10,14 @@ const About = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState([false, false, false]);
   
-  const images = [
-    `${process.env.PUBLIC_URL}/assets/images/profile/profile1.jpg`,
-    `${process.env.PUBLIC_URL}/assets/images/profile/profile2.jpg`,
-    `${process.env.PUBLIC_URL}/assets/images/profile/profile3.jpg`
-  ];
-
   useEffect(() => {
-    images.forEach((src, index) => {
+    const imageSources = [
+      `${process.env.PUBLIC_URL}/assets/images/profile/profile1.jpg`,
+      `${process.env.PUBLIC_URL}/assets/images/profile/profile2.jpg`,
+      `${process.env.PUBLIC_URL}/assets/images/profile/profile3.jpg`
+    ];
+    
+    imageSources.forEach((src, index) => {
       const img = new Image();
       img.src = src;
       img.onload = () => {
@@ -73,11 +73,11 @@ const About = () => {
 
   useEffect(() => {
     const imageInterval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
+      setCurrentImage((prev) => (prev + 1) % imagesLoaded.length);
     }, 3000); // Change image every 3 seconds
 
     return () => clearInterval(imageInterval);
-  }, [images.length]);
+  }, [imagesLoaded.length]);
 
   return (
     <section id="about" className="about-section">
@@ -173,17 +173,17 @@ const About = () => {
             </motion.div>
           </div>
           <div className="about-image">
-            {images.map((src, index) => (
+            {imagesLoaded.map((loaded, index) => (
               <img
-                key={src}
-                src={src}
+                key={index}
+                src={`${process.env.PUBLIC_URL}/assets/images/profile/profile${index + 1}.jpg`}
                 alt={`Paul Kratsios ${index + 1}`}
-                className={`${currentImage === index ? 'active' : ''} ${imagesLoaded[index] ? 'loaded' : ''}`}
-                style={{ display: imagesLoaded[index] ? 'block' : 'none' }}
+                className={`${currentImage === index ? 'active' : ''} ${loaded ? 'loaded' : ''}`}
+                style={{ display: loaded ? 'block' : 'none' }}
               />
             ))}
             <div className="image-indicators">
-              {images.map((_, index) => (
+              {imagesLoaded.map((_, index) => (
                 <button
                   key={index}
                   className={`indicator ${currentImage === index ? 'active' : ''}`}
