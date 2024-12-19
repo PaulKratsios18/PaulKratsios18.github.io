@@ -84,7 +84,7 @@ const ProjectCard = ({
     return type === 'youtube' || path.endsWith('.mp4');
   };
 
-  const renderMedia = (url: string, type?: string) => {
+  const renderMedia = (url: string, type?: string, title?: string) => {
     if (type === 'youtube') {
       return (
         <iframe
@@ -92,6 +92,7 @@ const ProjectCard = ({
           height="100%"
           src={url}
           frameBorder="0"
+          title={title || 'Project video'}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
@@ -186,7 +187,11 @@ const ProjectCard = ({
                 <div className="media-container">
                   {isVideo(mediaItems[currentSlide].url, mediaItems[currentSlide].type) ? (
                     <div className="media-wrapper">
-                      {renderMedia(mediaItems[currentSlide].url, mediaItems[currentSlide].type)}
+                      {renderMedia(
+                        mediaItems[currentSlide].url, 
+                        mediaItems[currentSlide].type,
+                        `${title} - ${mediaItems[currentSlide].caption || 'video'}`
+                      )}
                     </div>
                   ) : (
                     <div className="media-wrapper">
