@@ -17,7 +17,7 @@ const Projects = () => {
       title: 'HiroFit',
       description: 'ML-powered fitness app providing real-time workout tracking and feedback using computer vision.',
       technologies: ['Swift', 'CoreML', 'Computer Vision', 'iOS'],
-      image: '/assets/images/hirofit/homepage.png',
+      image: `${process.env.PUBLIC_URL}/assets/images/hirofit/homepage.png`,
       // video: '/videos/projects/hirofit-demo.mp4',
       github: 'https://github.com/PaulKratsios18/HiroFit'
     },
