@@ -13,19 +13,24 @@ const About = () => {
   useEffect(() => {
     const imageSources = [
       `${process.env.PUBLIC_URL}/assets/images/profile/profile1.jpg`,
-      `${process.env.PUBLIC_URL}/assets/images/profile/profile2.JPG`,
-      `${process.env.PUBLIC_URL}/assets/images/profile/profile3.JPG`
+      `${process.env.PUBLIC_URL}/assets/images/profile/profile2.jpg`,
+      `${process.env.PUBLIC_URL}/assets/images/profile/profile3.jpg`
     ];
     
     imageSources.forEach((src, index) => {
+      console.log(`Attempting to load image ${index + 1}: ${src}`);
       const img = new Image();
       img.src = src;
       img.onload = () => {
+        console.log(`Successfully loaded image ${index + 1}`);
         setImagesLoaded(prev => {
           const newState = [...prev];
           newState[index] = true;
           return newState;
         });
+      };
+      img.onerror = () => {
+        console.error(`Failed to load image ${index + 1}: ${src}`);
       };
     });
   }, []);
