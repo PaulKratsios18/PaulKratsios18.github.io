@@ -181,7 +181,7 @@ const About = () => {
             {imagesLoaded.map((loaded, index) => (
               <img
                 key={index}
-                src={`${process.env.PUBLIC_URL}/assets/images/profile/profile${index + 1}.jpg`}
+                src={`${process.env.PUBLIC_URL}/assets/images/profile/profile${index + 1}${index === 0 ? '.jpg' : '.JPG'}`}
                 alt={`Paul Kratsios ${index + 1}`}
                 className={`${currentImage === index ? 'active' : ''} ${loaded ? 'loaded' : ''}`}
                 style={{ display: loaded ? 'block' : 'none' }}
