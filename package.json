@@ -10,5 +10,12 @@
     "tsparticles-slim": "^2.12.0",
     "typewriter-effect": "^2.21.0",
     "vue-particlejs": "^1.1.0"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }
