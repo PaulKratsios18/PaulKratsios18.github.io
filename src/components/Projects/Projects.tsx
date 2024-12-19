@@ -9,22 +9,22 @@ const Projects = () => {
       description: 'A web application designed to make group restaurant decisions fun and collaborative by letting users swipe left or right on restaurant options.',
       detailedDescription: 'Dinder uses advanced ranking and matching algorithms to find the perfect spot for everyone. Users can host or join sessions using unique codes, set preferences like cuisine and price range, and see matches in real-time.',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io'],
-      image: 'assets/images/dinder/thumbnail.png',
+      image: '/assets/images/dinder/thumbnail.png',
       videos: [
         {
-          url: 'assets/videos/dinder/demo-setup.mp4',
+          url: '/assets/videos/dinder/demo-setup.mp4',
           caption: 'Setting up a new dining session'
         },
         {
-          url: 'assets/videos/dinder/demo-match.mp4',
+          url: '/assets/videos/dinder/demo-match.mp4',
           caption: 'Finding restaurant matches'
         },
         {
-          url: 'assets/videos/dinder/demo-results.mp4',
+          url: '/assets/videos/dinder/demo-results.mp4',
           caption: 'Viewing final results'
         },
         {
-          url: 'assets/videos/dinder/demo-matchless.mp4',
+          url: '/assets/videos/dinder/demo-matchless.mp4',
           caption: 'Handling no matches scenario'
         }
       ],
