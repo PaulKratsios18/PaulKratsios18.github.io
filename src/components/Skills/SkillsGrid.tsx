@@ -68,9 +68,9 @@ const SkillsGrid = () => {
     {
       title: 'Office & Productivity',
       skills: [
-        { name: 'Excel/Sheets', level: 'expert' },
         { name: 'Word/Docs', level: 'expert' },
-        { name: 'PowerPoint/Slides', level: 'expert' },
+        { name: 'Excel/Sheets', level: 'advanced' },
+        { name: 'PowerPoint/Slides', level: 'advanced' },
         { name: 'VBA', level: 'intermediate' }
       ]
     }
