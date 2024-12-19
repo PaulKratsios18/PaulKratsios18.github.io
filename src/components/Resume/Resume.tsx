@@ -14,7 +14,7 @@ const Resume = () => {
         <h2>Resume</h2>
         <div className="resume-container">
           <iframe
-            src={`/assets/docs/PaulKratsiosResume.pdf#toolbar=0&navpanes=0&scrollbar=0`}
+            src={`${process.env.PUBLIC_URL}/assets/docs/PaulKratsiosResume.pdf#toolbar=0&navpanes=0&scrollbar=0`}
             width="100%"
             height="418px"
             style={{ 
