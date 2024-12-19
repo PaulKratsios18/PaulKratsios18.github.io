@@ -13,8 +13,8 @@ const About = () => {
   useEffect(() => {
     const imageSources = [
       `${process.env.PUBLIC_URL}/assets/images/profile/profile1.jpg`,
-      `${process.env.PUBLIC_URL}/assets/images/profile/profile2.jpg`,
-      `${process.env.PUBLIC_URL}/assets/images/profile/profile3.jpg`
+      `${process.env.PUBLIC_URL}/assets/images/profile/profile2.JPG`,
+      `${process.env.PUBLIC_URL}/assets/images/profile/profile3.JPG`
     ];
     
     imageSources.forEach((src, index) => {
