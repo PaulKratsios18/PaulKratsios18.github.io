@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://paulkratsios18.github.io",
   "dependencies": {
     "@types/node": "^16.18.122",
     "@types/react": "^18.3.17",

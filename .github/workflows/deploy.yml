@@ -26,6 +26,8 @@ jobs:
         run: npm install
         
       - name: Build
+        env:
+          PUBLIC_URL: https://paulkratsios18.github.io
         run: npm run build
         
       - name: Deploy to GitHub Pages
