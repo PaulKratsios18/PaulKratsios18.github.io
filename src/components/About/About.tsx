@@ -8,11 +8,27 @@ import { Engine } from "tsparticles-engine";
 
 const About = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState([false, false, false]);
+  
   const images = [
     `${process.env.PUBLIC_URL}/assets/images/profile/profile1.jpg`,
     `${process.env.PUBLIC_URL}/assets/images/profile/profile2.jpg`,
     `${process.env.PUBLIC_URL}/assets/images/profile/profile3.jpg`
   ];
+
+  useEffect(() => {
+    images.forEach((src, index) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        setImagesLoaded(prev => {
+          const newState = [...prev];
+          newState[index] = true;
+          return newState;
+        });
+      };
+    });
+  }, []);
 
   const handleIndicatorClick = (index: number) => {
     setCurrentImage(index);
@@ -162,7 +178,8 @@ const About = () => {
                 key={src}
                 src={src}
                 alt={`Paul Kratsios ${index + 1}`}
-                className={currentImage === index ? 'active' : ''}
+                className={`${currentImage === index ? 'active' : ''} ${imagesLoaded[index] ? 'loaded' : ''}`}
+                style={{ display: imagesLoaded[index] ? 'block' : 'none' }}
               />
             ))}
             <div className="image-indicators">

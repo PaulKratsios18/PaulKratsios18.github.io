@@ -164,7 +164,7 @@ section h2 {
   transition: opacity 0.5s ease-in-out;
 }
 
-.about-image img.active {
+.about-image img.loaded.active {
   opacity: 1;
 }
 
