@@ -62,7 +62,7 @@ const ProjectCard = ({
 
   const mediaItems = allMedia.map(item => ({
     ...item,
-    url: `${process.env.PUBLIC_URL}${item.url}`
+    url: item.type === 'youtube' ? item.url : `${process.env.PUBLIC_URL}${item.url}`
   }));
 
   const nextSlide = (e: React.MouseEvent) => {
@@ -86,19 +86,29 @@ const ProjectCard = ({
 
   const renderMedia = (url: string, type?: string, title?: string) => {
     if (type === 'youtube') {
+      const enhancedUrl = `${url}?playsinline=1&rel=0&modestbranding=1`;
       return (
         <iframe
           width="100%"
           height="100%"
-          src={url}
+          src={enhancedUrl}
           frameBorder="0"
           title={title || 'Project video'}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; playsinline"
           allowFullScreen
         />
       );
     }
-    return <video src={url} controls />;
+    // For local MP4 videos
+    return (
+      <video 
+        src={url} 
+        controls 
+        playsInline 
+        preload="metadata"
+        controlsList="nodownload"
+      />
+    );
   };
 
   return (
