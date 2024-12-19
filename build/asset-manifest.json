@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/PaulKratsios.github.io/static/css/main.58934472.css",
-    "main.js": "/PaulKratsios.github.io/static/js/main.deed75fb.js",
+    "main.js": "/PaulKratsios.github.io/static/js/main.bceba4c0.js",
     "index.html": "/PaulKratsios.github.io/index.html",
     "main.58934472.css.map": "/PaulKratsios.github.io/static/css/main.58934472.css.map",
-    "main.deed75fb.js.map": "/PaulKratsios.github.io/static/js/main.deed75fb.js.map"
+    "main.bceba4c0.js.map": "/PaulKratsios.github.io/static/js/main.bceba4c0.js.map"
   },
   "entrypoints": [
     "static/css/main.58934472.css",
-    "static/js/main.deed75fb.js"
+    "static/js/main.bceba4c0.js"
   ]
 }

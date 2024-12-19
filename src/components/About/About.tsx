@@ -13,8 +13,8 @@ const About = () => {
   useEffect(() => {
     const imageSources = [
       `${process.env.PUBLIC_URL}/assets/images/profile/profile1.jpg`,
-      `${process.env.PUBLIC_URL}/assets/images/profile/profile2.JPG`,
-      `${process.env.PUBLIC_URL}/assets/images/profile/profile3.JPG`
+      `${process.env.PUBLIC_URL}/assets/images/profile/profile2.jpg`,
+      `${process.env.PUBLIC_URL}/assets/images/profile/profile3.jpg`
     ];
     
     imageSources.forEach((src, index) => {
@@ -181,7 +181,7 @@ const About = () => {
             {imagesLoaded.map((loaded, index) => (
               <img
                 key={index}
-                src={`${process.env.PUBLIC_URL}/assets/images/profile/profile${index + 1}${index === 0 ? '.jpg' : '.JPG'}`}
+                src={`${process.env.PUBLIC_URL}/assets/images/profile/profile${index + 1}.jpg`}
                 alt={`Paul Kratsios ${index + 1}`}
                 className={`${currentImage === index ? 'active' : ''} ${loaded ? 'loaded' : ''}`}
                 style={{ display: loaded ? 'block' : 'none' }}
