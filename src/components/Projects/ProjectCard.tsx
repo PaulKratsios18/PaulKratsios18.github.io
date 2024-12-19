@@ -1,68 +1,267 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaGithub, FaTimes, FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa';
 
 interface ProjectCardProps {
   title: string;
   description: string;
+  detailedDescription?: string;
   technologies: string[];
-  image?: string;
-  video?: string;
+  image: string;
+  imageCaption?: string;
+  additionalImages?: Array<{
+    url: string;
+    caption: string;
+  }>;
+  videos?: Array<{
+    url: string;
+    caption: string;
+  }>;
   github?: string;
   live?: string;
+  features?: Array<{
+    title: string;
+    description: string;
+  }>;
 }
 
 const ProjectCard = ({
   title,
   description,
+  detailedDescription,
   technologies,
   image,
-  video,
+  imageCaption,
+  additionalImages = [],
+  videos = [],
   github,
   live,
+  features = [],
 }: ProjectCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Thumbnail handling
+  const thumbnailPath = `${process.env.PUBLIC_URL}${image}`;
+
+  // Expanded view media handling (prioritize videos, then additional images)
+  const allMedia = [
+    ...videos.map(video => 
+      typeof video === 'string' 
+        ? { url: video, caption: '' } 
+        : video
+    ),
+    ...additionalImages.map(img => 
+      typeof img === 'string' 
+        ? { url: img, caption: '' } 
+        : img
+    )
+  ].slice(0, 5);
+
+  const mediaItems = allMedia.map(item => ({
+    ...item,
+    url: `${process.env.PUBLIC_URL}${item.url}`
+  }));
+
+  const nextSlide = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentSlide((prev) => (prev + 1) % mediaItems.length);
+  };
+
+  const prevSlide = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentSlide((prev) => (prev - 1 + mediaItems.length) % mediaItems.length);
+  };
+
+  const handleIndicatorClick = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  // Add this helper function at the top of the component
+  const isVideo = (path: string): boolean => {
+    return path.endsWith('.mp4');
+  };
 
   return (
-    <motion.div
-      className="project-card"
-      whileHover={{ scale: 1.02 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-    >
-      <div className="project-image">
-        {video && isHovered ? (
-          <video autoPlay loop muted>
-            <source src={video} type="video/mp4" />
-          </video>
-        ) : (
-          <img src={image} alt={title} />
+    <>
+      <motion.div
+        className="project-card"
+        whileHover={{ scale: 1.02 }}
+        onClick={() => setIsExpanded(true)}
+        style={{ cursor: 'pointer' }}
+      >
+        <div className="project-image">
+          <img src={thumbnailPath} alt={title} />
+        </div>
+        <div className="project-content">
+          <h3>{title}</h3>
+          <p>{description}</p>
+          <div className="tech-stack">
+            {technologies.map((tech) => (
+              <span key={tech} className="tech-tag">
+                {tech}
+              </span>
+            ))}
+          </div>
+          <div className="project-links">
+            {github && (
+              <motion.a 
+                href={github} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="primary-btn"
+                whileHover={{ scale: 1.05 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <FaGithub style={{ marginRight: '0.5rem' }} /> GitHub
+              </motion.a>
+            )}
+            {live && (
+              <motion.a 
+                href={live} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="live-button"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Live Demo
+              </motion.a>
+            )}
+          </div>
+        </div>
+      </motion.div>
+
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            className="expanded-project-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsExpanded(false)}
+          >
+            <motion.div
+              className="expanded-project-content"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="close-button" onClick={() => setIsExpanded(false)}>
+                <FaTimes />
+              </button>
+
+              <h2 className="expanded-title">{title}</h2>
+
+              <div className="media-carousel">
+                {mediaItems.length > 1 && (
+                  <>
+                    <button className="carousel-button prev" onClick={prevSlide}>
+                      <FaChevronLeft />
+                    </button>
+                    <button className="carousel-button next" onClick={nextSlide}>
+                      <FaChevronRight />
+                    </button>
+                  </>
+                )}
+                
+                <div className="media-container">
+                  {isVideo(mediaItems[currentSlide].url) ? (
+                    <div className="media-wrapper">
+                      <video 
+                        key={mediaItems[currentSlide].url}
+                        autoPlay 
+                        loop 
+                        muted 
+                        controls 
+                        playsInline
+                      >
+                        <source src={mediaItems[currentSlide].url} type="video/mp4" />
+                      </video>
+                      {mediaItems[currentSlide].caption && (
+                        <p className="media-caption">{mediaItems[currentSlide].caption}</p>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="media-wrapper">
+                      <img 
+                        src={mediaItems[currentSlide].url} 
+                        alt={`${title} - ${currentSlide + 1}`} 
+                      />
+                      {mediaItems[currentSlide].caption && (
+                        <p className="media-caption">{mediaItems[currentSlide].caption}</p>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                <div className="media-indicators">
+                  {mediaItems.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`indicator ${currentSlide === index ? 'active' : ''}`}
+                      onClick={() => handleIndicatorClick(index)}
+                      aria-label={`View media ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div className="project-details">
+                <p className="detailed-description">{detailedDescription}</p>
+                
+                {features.length > 0 && (
+                  <>
+                    <h4 className="features-title">Key Features</h4>
+                    <ul className="features-list">
+                      {features.map((feature, index) => (
+                        <li key={index}>
+                          <strong>{feature.title}:</strong> {feature.description}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+
+                <div className="tech-stack">
+                  {technologies.map((tech) => (
+                    <span key={tech} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="project-links">
+                  {github && (
+                    <motion.a
+                      href={github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="primary-btn expanded-github-btn"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <FaGithub style={{ marginRight: '0.5rem' }} /> GitHub
+                    </motion.a>
+                  )}
+                  {live && (
+                    <motion.a
+                      href={live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="live-link"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <FaExternalLinkAlt /> Live Demo
+                    </motion.a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         )}
-      </div>
-      <div className="project-content">
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <div className="tech-stack">
-          {technologies.map((tech) => (
-            <span key={tech} className="tech-tag">
-              {tech}
-            </span>
-          ))}
-        </div>
-        <div className="project-links">
-          {github && (
-            <a href={github} target="_blank" rel="noopener noreferrer">
-              View Code
-            </a>
-          )}
-          {live && (
-            <a href={live} target="_blank" rel="noopener noreferrer">
-              Live Demo
-            </a>
-          )}
-        </div>
-      </div>
-    </motion.div>
+      </AnimatePresence>
+    </>
   );
 };
 
-export default ProjectCard; 
+export default ProjectCard;

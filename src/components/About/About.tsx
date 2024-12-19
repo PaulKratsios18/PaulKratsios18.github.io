@@ -55,24 +55,27 @@ const About = () => {
       deleteSpeed: 20,
       stringSplitter,
       cursor: '|',
-      cursorClassName: 'custom-cursor'
+      cursorClassName: 'custom-cursor',
+      html: true
     });
 
     typewriter
       .pauseFor(1000)
-      .typeString("Hi, I'm Paul 👋")
+      .typeString("Hi, I'm <span class='highlight'>Paul</span> 👋")
       .pauseFor(1000)
       .deleteAll()
       .typeString("I'm a ")
-      .typeString("Software Engineer 💻")
+      .typeString("<span class='highlight'>Software Engineer</span> 💻")
       .pauseFor(1000)
       .deleteChars(20)
-      .typeString("n Athlete 🚴‍♂️")
+      .typeString("n ")
+      .typeString("<span class='highlight'>Athlete</span> 🚴‍♂️")
       .pauseFor(1000)
-      .deleteChars(11)
-      .typeString(" Lifelong Learner 📚")
+      .deleteChars(12)
+      .typeString("a ")
+      .typeString("<span class='highlight'>Lifelong Learner</span> 📚")
       .pauseFor(1000)
-      .deleteChars(18)
+      .deleteChars(19)
       .start();
   }, []);
 
@@ -93,7 +96,6 @@ const About = () => {
         transition={{ duration: 0.8 }}
         className="about-content"
       >
-        <h2>Paul Kratsios</h2>
         <div className="banner-container">
           <div className="particle-banner">
             <Particles
@@ -174,7 +176,6 @@ const About = () => {
               transition={{ delay: 0.5 }}
             >
               <a href="#projects" className="primary-btn">View Projects</a>
-              <a href="#contact" className="secondary-btn">Get in Touch</a>
             </motion.div>
           </div>
           <div className="about-image">

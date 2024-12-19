@@ -1,32 +1,78 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SkillCard from './SkillCard.tsx';
+import SkillBar from './SkillBar.tsx';
 
 const SkillsGrid = () => {
+  const skillLevels = {
+    expert: 100,
+    advanced: 75,
+    intermediate: 50,
+    proficient: 25,
+    beginner: 10
+  };
+
   const skillCategories = [
     {
-      title: 'Languages',
-      skills: ['Python', 'C/C++', 'JavaScript', 'TypeScript', 'SQL', 'Java', 'Swift', 'R']
+      title: 'Programming Languages',
+      skills: [
+        { name: 'Python', level: 'advanced' },
+        { name: 'C/C++', level: 'advanced' },
+        { name: 'JavaScript/TS', level: 'intermediate' },
+        { name: 'HTML/CSS', level: 'intermediate' },
+        { name: 'Java', level: 'intermediate' },
+        { name: 'R', level: 'proficient' },
+        { name: 'Swift', level: 'proficient' }
+      ]
     },
     {
-      title: 'Data Science',
-      skills: ['Pandas', 'NumPy', 'Beautiful Soup', 'Scikit-learn']
+      title: 'Machine Learning & Data Science',
+      skills: [
+        { name: 'Pandas', level: 'advanced' },
+        { name: 'TensorFlow', level: 'intermediate' },
+        { name: 'Scikit-learn', level: 'intermediate' },
+        { name: 'NumPy', level: 'intermediate' },
+        { name: 'BeautifulSoup', level: 'intermediate' },
+        { name: 'OpenCV', level: 'intermediate' },
+        { name: 'PyTorch', level: 'proficient' }
+      ]
     },
     {
-      title: 'Frontend',
-      skills: ['React', 'HTML/CSS', 'Bootstrap', 'Material-UI']
+      title: 'Database Technologies',
+      skills: [
+        { name: 'PostgreSQL', level: 'advanced' },
+        { name: 'MongoDB', level: 'intermediate' },
+        { name: 'SQL', level: 'intermediate' },
+        { name: 'MySQL', level: 'intermediate' }
+      ]
     },
     {
-      title: 'Backend',
-      skills: ['Node.js', 'Express', 'Flask', 'REST APIs']
+      title: 'Non-Technical Skills',
+      skills: [
+        { name: 'Communication', level: 'expert' },
+        { name: 'Project Management', level: 'advanced' },
+        { name: 'Leadership', level: 'advanced' },
+        { name: 'Adaptability', level: 'advanced' },
+        { name: 'Technical Writing', level: 'intermediate' }
+      ]
     },
     {
-      title: 'Databases',
-      skills: ['MongoDB', 'MySQL', 'PostgreSQL']
+      title: 'Development Tools',
+      skills: [
+        { name: 'Git', level: 'advanced' },
+        { name: 'Terminal', level: 'advanced' },
+        { name: 'Jira', level: 'advanced' },
+        { name: 'Miro', level: 'advanced' },
+        { name: 'Docker', level: 'intermediate' }
+      ]
     },
     {
-      title: 'Tools',
-      skills: ['Git', 'Docker', 'AWS', 'CI/CD']
+      title: 'Office & Productivity',
+      skills: [
+        { name: 'Excel/Sheets', level: 'expert' },
+        { name: 'Word/Docs', level: 'expert' },
+        { name: 'PowerPoint/Slides', level: 'expert' },
+        { name: 'VBA', level: 'intermediate' }
+      ]
     }
   ];
 
@@ -38,17 +84,29 @@ const SkillsGrid = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <h2>Skills & Technologies</h2>
-        <div className="skills-grid">
-          {skillCategories.map((category, index) => (
+        <h2>Skills</h2>
+        <div className="skills-container">
+          {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              className="skill-category"
+              whileHover={{ 
+                scale: 1.02,
+                transition: { duration: 0.2 }
+              }}
             >
-              <SkillCard {...category} />
+              <h3>{category.title}</h3>
+              <div className="skill-bars">
+                {category.skills.map((skill, index) => (
+                  <SkillBar
+                    key={skill.name}
+                    skill={skill.name}
+                    level={skillLevels[skill.level]}
+                    levelName={skill.level}
+                    index={index}
+                  />
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
