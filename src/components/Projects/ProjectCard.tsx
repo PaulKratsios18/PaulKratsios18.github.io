@@ -7,7 +7,7 @@ interface ProjectCardProps {
   description: string;
   detailedDescription?: string;
   technologies: string[];
-  image: string;
+  image?: string;
   imageCaption?: string;
   additionalImages?: Array<{
     url: string;
