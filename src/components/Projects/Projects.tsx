@@ -8,8 +8,8 @@ const Projects = () => {
       title: 'Dinder',
       description: 'A group dining decision-making platform that makes restaurant selection fun and collaborative through swipe-based interactions.',
       technologies: ['React', 'Node.js', 'MongoDB', 'Google APIs'],
-      image: '/assets/images/dinder/homepage.png',
-      // video: '/videos/projects/dinder-demo.mp4',
+      image: `${process.env.PUBLIC_URL}/assets/images/dinder/homepage.png`,
+      // video: `${process.env.PUBLIC_URL}/videos/projects/dinder-demo.mp4`,
       github: 'https://github.com/PaulKratsios18/Dinder',
       live: 'https://dinder-app.com'
     },

@@ -25,7 +25,7 @@ const Resume = () => {
             title="Paul Kratsios Resume"
           />
           <a 
-            href="/assets/docs/PaulKratsiosResume.pdf" 
+            href={`${process.env.PUBLIC_URL}/assets/docs/PaulKratsiosResume.pdf`} 
             target="_blank" 
             rel="noopener noreferrer"
             className="primary-btn download-btn"

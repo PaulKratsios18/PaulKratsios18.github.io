@@ -9,9 +9,9 @@ import { Engine } from "tsparticles-engine";
 const About = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [
-    '/assets/images/profile/profile1.jpg',
-    '/assets/images/profile/profile2.jpg',
-    '/assets/images/profile/profile3.jpg'
+    `${process.env.PUBLIC_URL}/assets/images/profile/profile1.jpg`,
+    `${process.env.PUBLIC_URL}/assets/images/profile/profile2.jpg`,
+    `${process.env.PUBLIC_URL}/assets/images/profile/profile3.jpg`
   ];
 
   const handleIndicatorClick = (index: number) => {
