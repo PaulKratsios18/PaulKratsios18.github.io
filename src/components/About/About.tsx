@@ -159,7 +159,7 @@ const About = () => {
         <div className="about-grid">
           <div className="about-text">
             <p>
-              I'm a senior at Rensselaer Polytechnic Institute 🎓, graduating in
+              I'm a senior at Rensselaer Polytechnic Institute, graduating in
               December 2024 with a Dual Bachelor's in Computer Science and Cognitive Science, plus a Minor in Finance.
               My passion lies at the intersection of Software and Cognition.
             </p>
