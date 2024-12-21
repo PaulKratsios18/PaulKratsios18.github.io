@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.91604afa.css",
-    "main.js": "/static/js/main.8306c352.js",
-    "index.html": "/index.html",
-    "main.91604afa.css.map": "/static/css/main.91604afa.css.map",
-    "main.8306c352.js.map": "/static/js/main.8306c352.js.map"
+    "main.css": "https://paulkratsios18.github.io/static/css/main.91604afa.css",
+    "main.js": "https://paulkratsios18.github.io/static/js/main.3287ec49.js",
+    "index.html": "https://paulkratsios18.github.io/index.html",
+    "main.91604afa.css.map": "https://paulkratsios18.github.io/static/css/main.91604afa.css.map",
+    "main.3287ec49.js.map": "https://paulkratsios18.github.io/static/js/main.3287ec49.js.map"
   },
   "entrypoints": [
     "static/css/main.91604afa.css",
-    "static/js/main.8306c352.js"
+    "static/js/main.3287ec49.js"
   ]
 }
