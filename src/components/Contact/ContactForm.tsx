@@ -7,7 +7,7 @@ import emailjs from '@emailjs/browser';
 const ContactForm = () => {
   useEffect(() => {
     // Initialize EmailJS with your public key
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key
+    emailjs.init("PLV0ks6ugqy5_G9Q5"); // Replace with your actual public key
   }, []);
 
   const [formData, setFormData] = useState({
