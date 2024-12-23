@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Navbar from './components/Navigation/Navbar.tsx';
 import About from './components/About/About.tsx';
 import Experience from './components/Experience/Experience.tsx';
-import Athletic from './components/Achievements/Athletic.tsx';
+import Athletic from './components/Achievements/Extracurriculars.tsx';
 import Resume from './components/Resume/Resume.tsx';
 import Projects from './components/Projects/Projects.tsx';
 import Skills from './components/Skills/SkillsGrid.tsx';

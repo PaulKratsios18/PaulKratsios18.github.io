@@ -1,21 +1,61 @@
 :root {
   --primary-color: #2563eb;
+  --primary-light: #3b82f6;
+  --primary-dark: #1d4ed8;
   --secondary-color: #4f46e5;
+  --secondary-light: #6366f1;
+  --secondary-dark: #4338ca;
+  --accent-gold: #d4a853;
+  --accent-gold-light: #e6c989;
+  --accent-gold-dark: #b38c3d;
+  --accent-copper: #d4937b;
+  --accent-copper-light: #e6b4a3;
+  --accent-copper-dark: #b37560;
   --background-color: #0f172a;
-  --text-color: #e2e8f0;
+  --background-light: #1e293b;
+  --background-dark: #0a0f1c;
   --card-background: #1e293b;
-  --hover-color: #3b82f6;
+  --card-background-hover: #2a3a53;
+  --card-background-active: #334155;
+  --text-color: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
   --border-color: #334155;
+  --border-light: #475569;
+  --border-dark: #1e293b;
+  --gradient-gold: linear-gradient(90deg, #d4c4b5 0%, #a39081 100%);
+  --gradient-primary: linear-gradient(90deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+  --gradient-accent: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-copper) 100%);
 }
 
 [data-theme="light"] {
   --primary-color: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-dark: #2563eb;
   --secondary-color: #6366f1;
+  --secondary-light: #818cf8;
+  --secondary-dark: #4f46e5;
+  --accent-gold: #d4a853;
+  --accent-gold-light: #e6c989;
+  --accent-gold-dark: #b38c3d;
+  --accent-copper: #d4937b;
+  --accent-copper-light: #e6b4a3;
+  --accent-copper-dark: #b37560;
   --background-color: #f8fafc;
-  --text-color: #1e293b;
+  --background-light: #ffffff;
+  --background-dark: #e2e8f0;
   --card-background: #ffffff;
-  --hover-color: #2563eb;
+  --card-background-hover: #f1f5f9;
+  --card-background-active: #e2e8f0;
+  --text-color: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
   --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  --border-dark: #cbd5e1;
+  --gradient-gold: linear-gradient(90deg, #d4c4b5 0%, #a39081 100%);
+  --gradient-primary: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  --gradient-accent: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-copper) 100%);
 }
 
 * {
@@ -80,7 +120,7 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 6rem 1rem 2rem;
+  padding: 6rem 2rem 2rem;
 }
 
 section h2 {
@@ -213,7 +253,7 @@ section h2 {
 
 .achievements h3 {
   margin-bottom: 1rem;
-  color: var(--primary-color);
+  color: var(--accent-copper);
   font-size: 1.5rem;
 }
 
@@ -232,28 +272,29 @@ section h2 {
   content: "→";
   position: absolute;
   left: 0;
-  color: var(--primary-color);
+  color: var(--accent-copper);
 }
 
 /* Project Grid Styles */
 .projects-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .project-card {
-  flex: 0 1 calc(50% - 2rem);
+  width: calc(50% - 1rem);
   min-width: 300px;
-  max-width: 550px;
   background: var(--card-background);
   border-radius: 1rem;
   overflow: hidden;
   transition: transform 0.3s ease;
   position: relative;
+  border-top: 4px solid var(--accent-copper);
 }
 
 .project-card .project-image {
@@ -279,7 +320,7 @@ section h2 {
 .project-content h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--primary-color);
+  color: var(--accent-copper);
 }
 
 .project-content p {
@@ -295,17 +336,18 @@ section h2 {
 }
 
 .tech-tag {
-  background: rgba(37, 99, 235, 0.1);
-  color: var(--primary-color);
+  background: rgba(212, 147, 123, 0.1);
+  color: var(--accent-copper);
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
   font-size: 0.9rem;
+  border: 1px solid var(--accent-copper-dark);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   section {
-    padding: 3rem 1rem;
+    padding: 6rem 1rem 2rem;
   }
 
   .about-grid {
@@ -322,6 +364,10 @@ section h2 {
     grid-template-columns: 1fr;
     padding: 1rem;
   }
+
+  .project-card {
+    width: 100%;
+  }
 }
 /* Button Styles */
 .primary-btn, .secondary-btn, .tertiary-btn {
@@ -333,14 +379,19 @@ section h2 {
 }
 
 .primary-btn {
-  background: var(--primary-color);
+  background: var(--gradient-primary);
   color: white;
 }
 
 .secondary-btn {
-  background: rgba(37, 99, 235, 0.1);
+  background: transparent;
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
 }
 
 .tertiary-btn {
@@ -685,59 +736,28 @@ main {
   color: var(--primary-color);
 }
 
-/* Resume Section Styles */
-.resume-section {
-  min-height: auto;
-  padding: 4rem 0;
-  width: 100%;
-}
 
-.resume-container {
+.experience-grid {
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0 1rem;
-}
-
-.resume-container iframe {
-  width: 100%;
-  max-width: 2000px;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transform: scale(2);
-  transform-origin: top center;
-  margin: -2rem 0 0 0;
-  background: var(--card-background);
-  padding: 1rem;
-}
-
-.download-btn {
-  margin-top: 27rem;
-}
-
-.experience-grid {
-  display: flex;
-  flex-direction: column;
   gap: 1.5rem;
-  margin-top: 2rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 2rem;
 }
 
 .experience-card {
+  width: 100%;
   background: var(--card-background);
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  width: 100%;
   position: relative;
   overflow: hidden;
   cursor: default;
+  border-left: 4px solid var(--primary-color);
 }
 
 .experience-card:hover {
@@ -816,7 +836,7 @@ main {
   content: "○";
   position: absolute;
   left: 0;
-  color: var(--primary-color);
+  color: var(--primary-light);
 }
 
 .expected-date {
@@ -1190,11 +1210,7 @@ main {
 
 .skill-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, 
-    var(--primary-color) 0%,
-    var(--secondary-color) 50%,
-    var(--hover-color) 100%
-  );
+  background: var(--gradient-primary);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transform-origin: left;
@@ -1221,6 +1237,8 @@ main {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  border-bottom: 4px solid var(--primary-color);
 }
 
 .skill-category h3 {
@@ -1413,3 +1431,819 @@ main {
   }
 }
 
+.resume-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.view-btn {
+  margin-top: 0;
+}
+
+.download-btn {
+  margin-top: 0;
+}
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+}
+
+.iframe-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.iframe-container:hover .iframe-overlay {
+  pointer-events: none;
+}
+
+.resume-section {
+  min-height: auto;
+  padding: 6rem 0 4rem;
+  width: 100%;
+}
+
+.resume-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.resume-preview {
+  background: var(--card-background);
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+  display: flex;
+  border-right: 4px solid var(--primary-color);
+}
+
+.preview-content {
+  padding: 3rem;
+  width: 100%;
+}
+
+.preview-content h3 {
+  font-size: 2.5rem;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.preview-subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.preview-school {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.preview-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.highlight-item h4 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.highlight-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.highlight-item li {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.highlight-item li::before {
+  content: "○";
+  position: absolute;
+  left: 0;
+  color: var(--primary-light);
+}
+
+.preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 41, 59, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.resume-preview:hover .preview-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.overlay-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.resume-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .preview-highlights {
+    grid-template-columns: 1fr;
+  }
+  
+  .preview-content {
+    padding: 2rem;
+  }
+  
+  .resume-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Extracurriculars Styles */
+.extracurriculars-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0;
+}
+
+.extracurricular-card {
+  width: calc(50% - 1rem);
+  background: var(--card-background);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.extracurricular-card h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.position-content {
+  margin-bottom: 1.5rem;
+}
+
+.position-content:last-child {
+  margin-bottom: 0;
+}
+
+.position-header {
+  margin-bottom: 0.75rem;
+}
+
+.position-header h4 {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.organization, .date {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.position-bullets {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+.position-bullets li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.position-bullets li::before {
+  content: "○";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .extracurricular-card {
+    width: 100%;
+  }
+}
+
+/* Leadership & Athletics Section Styles */
+.section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+}
+
+.section-container:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 0;
+}
+
+.athletics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 0;
+}
+
+.extracurricular-card {
+  width: 100%;
+  background: var(--card-background);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.extracurricular-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Remove any conflicting hover styles */
+.leadership-grid .extracurricular-card:hover,
+.athletics-grid .extracurricular-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Keep the image hover effect */
+.extracurricular-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.extracurricular-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.position-content {
+  margin-bottom: 1.5rem;
+}
+
+.position-content:last-child {
+  margin-bottom: 0;
+}
+
+.position-header h4 {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.organization, .date {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.position-bullets {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.position-bullets li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.position-bullets li::before {
+  content: "○";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+@media (max-width: 1024px) {
+  .athletics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .leadership-grid,
+  .athletics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Common width for all sections */
+.experience-grid,
+.projects-grid,
+.skills-container,
+.leadership-grid,
+.athletics-grid,
+.resume-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem; /* Add consistent padding on sides */
+}
+
+/* Projects Grid - 2 cards per row */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* Skills Grid - 3 cards per row */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Leadership Grid - 2 cards per row */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* Athletics Grid - 3 cards per row */
+.athletics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Remove any individual card margins/widths */
+.project-card,
+.skill-category,
+.extracurricular-card {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .skills-container,
+  .athletics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-grid,
+  .projects-grid,
+  .skills-container,
+  .leadership-grid,
+  .athletics-grid,
+  .resume-container {
+    padding: 0 1rem;
+  }
+
+  .projects-grid,
+  .skills-container,
+  .leadership-grid,
+  .athletics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Update Extracurriculars section to copper theme */
+.extracurriculars-section .section-title {
+  color: var(--accent-copper);
+}
+
+.extracurriculars-section .extracurricular-card {
+  border-top: 4px solid var(--accent-copper);
+}
+
+.extracurriculars-section .card-content h3 {
+  color: var(--accent-copper);
+}
+
+.extracurriculars-section .position-bullets li::before {
+  color: var(--accent-copper-light);
+}
+
+/* Update Resume section to blue theme */
+.resume-preview {
+  border-right: 4px solid var(--primary-color);
+}
+
+.preview-subtitle {
+  color: var(--primary-color);
+}
+
+.highlight-item h4 {
+  color: var(--primary-color);
+}
+
+.highlight-item li::before {
+  color: var(--primary-light);
+}
+
+.secondary-btn {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
+}
+
+/* Update Contact section to copper theme */
+.contact-section {
+  color: var(--accent-copper);
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+  border-color: var(--accent-copper);
+}
+
+.contact-section button {
+  background: var(--accent-copper);
+}
+
+.contact-section button:hover {
+  background: var(--accent-copper-dark);
+}
+
+/* Contact Section Styles */
+.contact-section {
+  min-height: auto;
+  padding: 6rem 0 4rem;
+  background: var(--card-background);
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-info {
+  padding: 2rem;
+  background: var(--background-color);
+  border-radius: 1rem;
+  border-left: 4px solid var(--accent-copper);
+}
+
+.contact-info h3 {
+  color: var(--accent-copper);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(212, 147, 123, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  transform: translateX(10px);
+  background: rgba(212, 147, 123, 0.2);
+}
+
+.contact-link svg {
+  color: var(--accent-copper);
+  font-size: 1.5rem;
+}
+
+.contact-form {
+  padding: 2rem;
+  background: var(--background-color);
+  border-radius: 1rem;
+  border-right: 4px solid var(--accent-copper);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--accent-copper);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: var(--card-background);
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-copper);
+  box-shadow: 0 0 0 2px rgba(212, 147, 123, 0.2);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--accent-copper) 0%, var(--accent-copper-dark) 100%);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 147, 123, 0.3);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+/* Social Links in Contact */
+.contact-social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-social-link {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 147, 123, 0.1);
+  border-radius: 50%;
+  color: var(--accent-copper);
+  transition: all 0.3s ease;
+}
+
+.contact-social-link:hover {
+  transform: translateY(-3px);
+  background: var(--accent-copper);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
+
+/* Animation for form inputs */
+.form-group input,
+.form-group textarea {
+  transform-origin: left;
+  animation: formFieldsAppear 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes formFieldsAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Stagger animation delay for form fields */
+.form-group:nth-child(1) input { animation-delay: 0.1s; }
+.form-group:nth-child(2) input { animation-delay: 0.2s; }
+.form-group:nth-child(3) textarea { animation-delay: 0.3s; }
+.submit-button { animation-delay: 0.4s; }
+
+/* Form Status Messages */
+.form-status {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form-status.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.form-status.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Update Contact Form Spacing */
+.contact-section {
+  padding: 8rem 0 6rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-info {
+  padding: 2.5rem;
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-link {
+  padding: 1.25rem;
+  font-size: 1.1rem;
+}
+
+.contact-link svg {
+  font-size: 1.25rem;
+}
+
+.contact-form {
+  padding: 2.5rem;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 1.25rem;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 180px;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  font-size: 1.1rem;
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-info,
+  .contact-form {
+    padding: 2rem;
+  }
+}
