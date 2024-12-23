@@ -1,10 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaSwimmer, FaBiking, FaRunning } from 'react-icons/fa';
+
+interface Position {
+  role?: string;
+  organization?: string;
+  location?: string;
+  date?: string;
+  bullets: string[];
+  distances?: {
+    swim?: string;
+    bike?: string;
+    run: string;
+  };
+}
+
+interface ExtracurricularItem {
+  title: string;
+  location?: string;
+  positions: Position[];
+  image: string;
+  logo?: string;
+}
 
 const Extracurriculars = () => {
-  const leadership = [
+  const leadership: ExtracurricularItem[] = [
     {
       title: 'Theta Xi Fraternity',
+      logo: 'assets/images/extracurriculars/logos/thetaxiLogo.png',
+      location: 'RPI - Troy, NY',
       positions: [
         {
           role: 'Recruitment Chairman',
@@ -24,16 +48,17 @@ const Extracurriculars = () => {
           ]
         },
       ],
-      image: '/assets/images/profile/profile3.jpg'
+      image: '/assets/images/profile/profile3.jpg',
     },
     {
       title: 'Eagle Scout',
+      logo: 'assets/images/extracurriculars/logos/2024_Troop1-LOGO.png',
+      location: 'New York, NY',
       positions: [
         {
           role: 'Eagle Scout & Junior Assistant Scoutmaster',
           organization: 'Scouts BSA Troop 1',
-          location: 'New York, NY',
-          date: '2016 - 2020',
+          date: '2010 - 2020',
           bullets: [
             'Served as Senior Patrol Leader, leading and mentoring 50+ scouts through weekly meetings and monthly camping trips',
             'Managed troop inventory and logistics as Quartermaster, ensuring proper equipment maintenance and distribution',
@@ -50,57 +75,87 @@ const Extracurriculars = () => {
           ]
         }
       ],
-        image: '/assets/images/profile/profile3.jpg'
+      image: '/assets/images/profile/profile3.jpg'
     }
   ];
 
-  const athletics = [
+  const athletics: ExtracurricularItem[] = [
     {
-      title: 'RPI Ice Hockey',
+      title: 'RPI ACHA Ice Hockey Team',
+      logo: 'assets/images/extracurriculars/logos/rpiACHALogo.png',
       positions: [{
-        role: 'RPI American Collegiate Hockey Association Men\'s Ice Hockey Team',
-        date: 'Fall 2020 – Spring 2025',
+        location: 'Troy, NY',
+        date: 'Fall 2020 - Spring 2025',
         bullets: []
       }],
       image: '/assets/images/profile/profile3.jpg'
     },
     {
-      title: 'Spartan Trifecta 2024',
+      title: 'Spartan Trifecta',
+      logo: 'assets/images/extracurriculars/logos/spartanTrifectaLogo.png',
       positions: [{
-        role: 'Spartan Trifecta - Mount Killington',
         location: 'Killington, VT',
         date: 'September 2024',
-        bullets: []
+        bullets: [],
+        distances: {
+          run: '3+ mi | 6+ mi | 13+ mi'
+        }
       }],
       image: '/assets/images/profile/profile3.jpg'
     },
     {
       title: 'IRONMAN 70.3 MUSSELMAN',
+      logo: 'assets/images/extracurriculars/logos/IM23_703Musselman_Logo.png',
       positions: [{
-        role: 'IRONMAN 70.3',
         location: 'Geneva, NY',
         date: 'July 2024',
-        bullets: []
+        bullets: [],
+        distances: {
+          swim: '1.2 mi',
+          bike: '56 mi',
+          run: '13.1 mi'
+        }
+      }],
+      image: '/assets/images/profile/profile3.jpg'
+    },
+    {
+      title: 'Helderberg to Hudson HM',
+      logo: 'assets/images/extracurriculars/logos/helderbergToHudsonLogo.png',
+      positions: [{
+        location: 'Albany, NY',
+        date: 'April 2024',
+        bullets: [],
+        distances: {
+          run: '13.1 miles'
+        }
       }],
       image: '/assets/images/profile/profile3.jpg'
     },
     {
       title: 'IRONMAN 70.3 NEW YORK',
+      logo: 'assets/images/extracurriculars/logos/70.3_New_York_Logo.png',
       positions: [{
-        role: 'IRONMAN 70.3',
         location: 'Jones Beach, NY',
         date: 'September 2023',
-        bullets: []
+        bullets: [],
+        distances: {
+          swim: '1.2 mi',
+          bike: '56 mi',
+          run: '13.1 mi'
+        }
       }],
       image: '/assets/images/profile/profile3.jpg'
     },
     {
-      title: 'Spartan Beast 2023',
+      title: 'Spartan Beast',
+      logo: 'assets/images/extracurriculars/logos/spartan_beast_logo.png',
       positions: [{
-        role: 'Spartan Beast - Mount Killington',
         location: 'Killington, VT',
         date: 'September 2023',
-        bullets: []
+        bullets: [],
+        distances: {
+          run: '13+ miles'
+        }
       }],
       image: '/assets/images/profile/profile3.jpg'
     }
@@ -132,14 +187,23 @@ const Extracurriculars = () => {
                   <img src={item.image} alt={item.title} />
                 </div>
                 <div className="card-content">
-                  <h3>{item.title}</h3>
+                  <div className="card-header">
+                    {item.logo && (
+                      <div className="event-logo">
+                        <img src={`${process.env.PUBLIC_URL}/${item.logo}`} alt={`${item.title} logo`} />
+                      </div>
+                    )}
+                    <h3>{item.title}</h3>
+                  </div>
+                  <span className="location">{item.location}</span>
                   {item.positions.map((position, posIndex) => (
                     <div key={posIndex} className="position-content">
                       <div className="position-header">
                         <h4>{position.role}</h4>
                         {position.organization && (
                           <span className="organization">
-                            {position.organization} – {position.location}
+                            {position.organization}
+                            {position.location && ` – ${position.location}`}
                           </span>
                         )}
                         {position.date && <span className="date">{position.date}</span>}
@@ -175,18 +239,71 @@ const Extracurriculars = () => {
                   <img src={item.image} alt={item.title} />
                 </div>
                 <div className="card-content">
-                  <h3>{item.title}</h3>
+                  <div className="card-header">
+                    {item.logo && (
+                      <div className="event-logo">
+                        <img src={`${process.env.PUBLIC_URL}/${item.logo}`} alt={`${item.title} logo`} />
+                      </div>
+                    )}
+                    <h3>{item.title}</h3>
+                  </div>
+                  <span className="location">{item.location}</span>
                   {item.positions.map((position, posIndex) => (
                     <div key={posIndex} className="position-content">
                       <div className="position-header">
-                        <h4>{position.role}</h4>
-                        {position.location && (
-                          <span className="organization">
-                            {position.location}
-                          </span>
+                        {position.location && position.location !== item.location && (
+                          <span className="location">{position.location}</span>
                         )}
                         {position.date && <span className="date">{position.date}</span>}
                       </div>
+                      {position.distances && (
+                        <div className="race-distances">
+                          {position.distances.swim ? (
+                            <div className="distance-item triathlon">
+                              <span className="discipline-icon">
+                                <FaSwimmer />
+                              </span>
+                              <span className="distance">{position.distances.swim}</span>
+                              <span className="separator">|</span>
+                              <span className="discipline-icon">
+                                <FaBiking />
+                              </span>
+                              <span className="distance">{position.distances.bike}</span>
+                              <span className="separator">|</span>
+                              <span className="discipline-icon">
+                                <FaRunning />
+                              </span>
+                              <span className="distance">{position.distances.run}</span>
+                            </div>
+                          ) : (
+                            position.distances.run.includes('|') ? (
+                              <div className="distance-item triathlon">
+                                <span className="discipline-icon">
+                                  <FaRunning />
+                                </span>
+                                <span className="distance">3+ mi</span>
+                                <span className="separator">|</span>
+                                <span className="discipline-icon">
+                                  <FaRunning />
+                                </span>
+                                <span className="distance">6+ mi</span>
+                                <span className="separator">|</span>
+                                <span className="discipline-icon">
+                                  <FaRunning />
+                                </span>
+                                <span className="distance">13+ mi</span>
+                              </div>
+                            ) : (
+                              <div className="distance-item">
+                                <span className="discipline-icon">
+                                  <FaRunning />
+                                </span>
+                                <span className="distance">{position.distances.run}</span>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>

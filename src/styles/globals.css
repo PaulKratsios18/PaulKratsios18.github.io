@@ -1748,7 +1748,7 @@ main {
 }
 
 .card-content {
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
 .card-content h3 {
@@ -2246,4 +2246,202 @@ main {
   .contact-form {
     padding: 2rem;
   }
+}
+
+.card-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: -1rem -3rem 1.5rem -2.9rem;
+  padding: 1rem 1rem 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  flex-grow: 1;
+  max-width: calc(100% - 80px);
+  padding-right: 0.5rem;
+}
+
+.event-logo {
+  width: 80px;
+  height: 80px;
+  margin-right: 1rem;
+  padding: 0.75rem;
+  background: transparent;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+}
+
+.extracurricular-card:hover .event-logo {
+  transform: scale(1.05);
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Special sizes for specific logos */
+.leadership-card .event-logo {
+  width: 120px;
+  height: 120px;
+}
+
+/* Boy Scout logo - smaller */
+[alt="Eagle Scout logo"] {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+/* RPI ACHA logo - smaller */
+[alt="RPI ACHA logo"] {
+  width: 60px !important;
+  height: 60px !important;
+}
+/* Ironman 70.3 NY logo - bigger */
+[alt="IRONMAN 70.3 NEW YORK logo"] {
+  width: 105px !important;
+  height: 105px !important;
+}
+/* Ironman 70.3 Musselman logo - bigger */
+[alt="IRONMAN 70.3 MUSSELMAN logo"] {
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.event-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(1);
+}
+
+.extracurricular-card:hover .event-logo img {
+  filter: brightness(1);
+}
+
+/* Adjust card content for larger logo */
+.card-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .card-header h3 {
+    max-width: 100%;
+  }
+
+  .event-logo {
+    margin-left: 0;
+    align-self: center;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Add subtle separator between header and content */
+.position-content:first-of-type {
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+/* Enhance location display */
+.location {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.race-distances {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+    width: 100%;
+}
+
+.distance-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.distance-item.triathlon {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+.discipline-icon {
+  display: flex;
+  align-items: center;
+    justify-content: center;
+  font-size: 0.9rem;
+  color: var(--accent-copper);
+  flex-shrink: 0;
+}
+
+.separator {
+  color: var(--text-secondary);
+  font-weight: 300;
+  margin: 0 0.2rem;
+  flex-shrink: 0;
+}
+
+.distance {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .distance-item.triathlon {
+    gap: 0.3rem;
+    font-size: 0.8rem;
+  }
+  
+  .discipline-icon {
+    font-size: 0.85rem;
+  }
+  
+  .distance {
+    font-size: 0.8rem;
+  }
+  
+  .separator {
+    margin: 0 0.15rem;
+  }
+}
+
+/* Update athletic card padding for better spacing */
+.athletic-card .card-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.athletic-card .position-content {
+  margin-bottom: 0;
 }
