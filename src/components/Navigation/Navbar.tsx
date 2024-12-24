@@ -3,6 +3,16 @@ import { motion } from 'framer-motion';
 import MobileMenu from './MobileMenu.tsx';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
+const navItems = [
+  { title: 'About', href: '#about' },
+  { title: 'Experience', href: '#experience' },
+  { title: 'Projects', href: '#projects' },
+  { title: 'Skills', href: '#skills' },
+  { title: 'Extracurriculars', href: '#extracurriculars' },
+  { title: 'Resume', href: '#resume' },
+  { title: 'Contact', href: '#contact' },
+];
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,16 +41,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navItems = [
-    { title: 'About', href: '#about' },
-    { title: 'Experience', href: '#experience' },
-    { title: 'Projects', href: '#projects' },
-    { title: 'Skills', href: '#skills' },
-    { title: 'Extracurriculars', href: '#extracurriculars' },
-    { title: 'Resume', href: '#resume' },
-    { title: 'Contact', href: '#contact' },
-  ];
 
   return (
     <motion.nav
