@@ -6,11 +6,28 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Find which section is currently in view
+      const sections = navItems.map(item => item.href.substring(1));
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -59,7 +76,11 @@ const Navbar = () => {
         <div className="desktop-menu">
           <div className="nav-center">
             {navItems.map((item) => (
-              <a key={item.title} href={item.href}>
+              <a 
+                key={item.title} 
+                href={item.href}
+                className={activeSection === item.href.substring(1) ? 'active' : ''}
+              >
                 {item.title}
               </a>
             ))}

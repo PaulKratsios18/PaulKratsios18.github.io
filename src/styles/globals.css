@@ -508,11 +508,29 @@ section h2 {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
   transition: color 0.3s ease;
 }
 
-.desktop-menu a:hover {
-  color: var(--hover-color);
+.desktop-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-copper);
+  transition: width 0.3s ease;
+}
+
+.desktop-menu a:hover::after,
+.desktop-menu a.active::after {
+  width: 100%;
+}
+
+.desktop-menu a.active {
+  color: var(--accent-copper);
 }
 
 .mobile-menu-button {
@@ -2634,7 +2652,7 @@ main {
 
 .card-image {
   width: 100%;
-  aspect-ratio: 1 / 1.2;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -2645,14 +2663,9 @@ main {
   border-radius: 0.75rem;
 }
 
-/* Leadership cards - much taller */
-.leadership-card .card-image {
-  aspect-ratio: 1 / 1.8;
-}
-
-/* Athletic cards - slightly taller than square */
+/* Specific height adjustments for athletic cards */
 .athletic-card .card-image {
-  aspect-ratio: 1 / 1.2;
+  height: 250px;
 }
 
 /* Remove these hover styles */
