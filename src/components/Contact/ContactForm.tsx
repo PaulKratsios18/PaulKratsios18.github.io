@@ -58,8 +58,8 @@ const ContactForm = () => {
             <div className="contact-info">
               <h3>Let's Connect</h3>
               <p>
-                I'm always open to new opportunities and collaborations. Whether you have a question
-                or just want to say hi, I'll try my best to get back to you!
+                I am always eager to explore new opportunities and collaborations.
+                If you have any questions or simply wish to connect, please feel free to reach out.
               </p>
               
               <div className="contact-links">

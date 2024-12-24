@@ -29,11 +29,11 @@ const Extracurriculars = () => {
     {
       title: 'Theta Xi Fraternity',
       logo: 'assets/images/extracurriculars/logos/thetaxiLogo.png',
-      location: 'RPI - Troy, NY',
+      location: 'Rensselaer Polytechnic Institute - Troy, NY',
       positions: [
         {
           role: 'Recruitment Chairman',
-          date: 'Sep 2023 – Dec 2023',
+          date: 'May 2023 – Dec 2023',
           bullets: [
             'Utilized data analytics to drive decision–making, optimizing recruitment efforts and monetary efficiency',
             'Orchestrated strategic recruitment campaigns and led a cohesive team to attract outstanding individuals',
@@ -95,7 +95,7 @@ const Extracurriculars = () => {
       title: 'America Coast to Coast Bike Tour',
       logo: 'assets/images/extracurriculars/logos/apogee_logo.png',
       positions: [{
-        location: 'USA',
+        location: 'United States of America',
         date: 'Summer 2018',
         bullets: [],
         distances: {
@@ -109,8 +109,8 @@ const Extracurriculars = () => {
       title: 'Spartan Trifecta',
       logo: 'assets/images/extracurriculars/logos/spartanTrifectaLogo.png',
       positions: [{
-        location: 'Killington, VT',
-        date: 'September 2024',
+        location: 'Barre, MA and Killington, VT',
+        date: 'Aug 2024 and Sep 2024',
         bullets: [],
         distances: {
           run: '3+ mi | 6+ mi | 13+ mi'
@@ -189,7 +189,7 @@ const Extracurriculars = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <h2>Leadership & Athletics</h2>
+        <h2>Extracurriculars</h2>
         
         <div className="section-container">
           <h3 className="section-title">Leadership Experience</h3>
@@ -269,7 +269,7 @@ const Extracurriculars = () => {
                     )}
                     <h3>{item.title}</h3>
                   </div>
-                  <span className="location">{item.location}</span>
+                  {/* <span className="location">{item.location}</span> */}
                   {item.positions.map((position, posIndex) => (
                     <div key={posIndex} className="position-content">
                       <div className="position-header">

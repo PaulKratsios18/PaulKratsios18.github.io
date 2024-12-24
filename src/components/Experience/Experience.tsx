@@ -8,7 +8,7 @@ const Experience = () => {
       title: 'Machine Learning Engineer Intern',
       company: 'CyberSaint Security',
       location: 'Boston, MA (Remote)',
-      date: 'May 2024 - August 2024',
+      date: 'May 2024 - Aug 2024',
       logo: `${process.env.PUBLIC_URL}/assets/images/companies/cybersaint.jpg`,
       bullets: [
         'Led the design and development of a project to quantify reputation damage from cyber attacks by assessing equity losses, market share, competitor performance, and market sentiment',

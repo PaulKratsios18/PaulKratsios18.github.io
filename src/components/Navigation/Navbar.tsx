@@ -51,7 +51,7 @@ const Navbar = () => {
     >
       <div className="nav-content">
         <motion.a 
-          href="#about" 
+          href="/" 
           className="logo"
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
