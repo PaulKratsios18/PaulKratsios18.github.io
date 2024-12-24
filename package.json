@@ -8,6 +8,7 @@
     "@types/node": "^16.18.122",
     "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.5",
+    "clear": "^0.1.0",
     "framer-motion": "^11.15.0",
     "grapheme-splitter": "^1.0.4",
     "react": "^18.3.1",

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaSwimmer, FaBiking, FaRunning } from 'react-icons/fa';
+import { FaSwimmer, FaBiking, FaRunning, FaClock } from 'react-icons/fa';
 
 interface Position {
   role?: string;
@@ -11,8 +11,9 @@ interface Position {
   distances?: {
     swim?: string;
     bike?: string;
-    run: string;
+    run?: string;
   };
+  time?: string;
 }
 
 interface ExtracurricularItem {
@@ -91,6 +92,20 @@ const Extracurriculars = () => {
       image: '/assets/images/extracurriculars/hockey_1.png'
     },
     {
+      title: 'America Coast to Coast Bike Tour',
+      logo: 'assets/images/extracurriculars/logos/apogee_logo.png',
+      positions: [{
+        location: 'USA',
+        date: 'Summer 2018',
+        bullets: [],
+        distances: {
+          bike: '3,000 mi'
+        },
+        time: '6 weeks'
+      }],
+      image: '/assets/images/extracurriculars/ACC_3.png'
+    },
+    {
       title: 'Spartan Trifecta',
       logo: 'assets/images/extracurriculars/logos/spartanTrifectaLogo.png',
       positions: [{
@@ -99,7 +114,8 @@ const Extracurriculars = () => {
         bullets: [],
         distances: {
           run: '3+ mi | 6+ mi | 13+ mi'
-        }
+        },
+        time: '07:13:52'
       }],
       image: '/assets/images/extracurriculars/spartanTrifecta_1.png'
     },
@@ -114,7 +130,8 @@ const Extracurriculars = () => {
           swim: '1.2 mi',
           bike: '56 mi',
           run: '13.1 mi'
-        }
+        },
+        time: '05:32:32'
       }],
       image: '/assets/images/extracurriculars/IM70.3Musselman_1.png'
     },
@@ -127,7 +144,8 @@ const Extracurriculars = () => {
         bullets: [],
         distances: {
           run: '13.1 miles'
-        }
+        },
+        time: '01:38:48'
       }],
       image: '/assets/images/extracurriculars/helderbergToHudson_1.png'
     },
@@ -142,7 +160,8 @@ const Extracurriculars = () => {
           swim: '1.2 mi',
           bike: '56 mi',
           run: '13.1 mi'
-        }
+        },
+        time: '06:03:27'
       }],
       image: '/assets/images/extracurriculars/IM70.3NY_1.png'
     },
@@ -155,7 +174,8 @@ const Extracurriculars = () => {
         bullets: [],
         distances: {
           run: '13+ miles'
-        }
+        },
+        time: '04:32:54'
       }],
       image: '/assets/images/extracurriculars/spartanBeast_1.png'
     }
@@ -259,52 +279,58 @@ const Extracurriculars = () => {
                         {position.date && <span className="date">{position.date}</span>}
                       </div>
                       {position.distances && (
-                        <div className="race-distances">
-                          {position.distances.swim ? (
-                            <div className="distance-item triathlon">
-                              <span className="discipline-icon">
-                                <FaSwimmer />
-                              </span>
-                              <span className="distance">{position.distances.swim}</span>
-                              <span className="separator">|</span>
-                              <span className="discipline-icon">
-                                <FaBiking />
-                              </span>
-                              <span className="distance">{position.distances.bike}</span>
-                              <span className="separator">|</span>
-                              <span className="discipline-icon">
-                                <FaRunning />
-                              </span>
-                              <span className="distance">{position.distances.run}</span>
+                        <>
+                          <div className="race-distances">
+                            <div className={`distance-item ${(position.distances.swim || position.distances?.run?.includes('|')) ? 'triathlon' : ''}`}>
+                              {position.distances.swim ? (
+                                <>
+                                  {[
+                                    { icon: <FaSwimmer />, distance: position.distances.swim },
+                                    { icon: <FaBiking />, distance: position.distances.bike },
+                                    { icon: <FaRunning />, distance: position.distances.run }
+                                  ].map((item, index) => (
+                                    <React.Fragment key={index}>
+                                      {index > 0 && <span className="separator">|</span>}
+                                      <div className="discipline-group">
+                                        <span className="discipline-icon">{item.icon}</span>
+                                        <span className="distance">{item.distance}</span>
+                                      </div>
+                                    </React.Fragment>
+                                  ))}
+                                </>
+                              ) : position.distances?.run?.includes('|') ? (
+                                <>
+                                  {position.distances.run.split('|').map((distance, index) => (
+                                    <React.Fragment key={index}>
+                                      {index > 0 && <span className="separator">|</span>}
+                                      <div className="discipline-group">
+                                        <span className="discipline-icon">
+                                          <FaRunning />
+                                        </span>
+                                        <span className="distance">{distance.trim()}</span>
+                                      </div>
+                                    </React.Fragment>
+                                  ))}
+                                </>
+                              ) : (
+                                <div className="discipline-group">
+                                  <span className="discipline-icon">
+                                    {position.distances.bike ? <FaBiking /> : <FaRunning />}
+                                  </span>
+                                  <span className="distance">
+                                    {position.distances.bike || position.distances.run}
+                                  </span>
+                                </div>
+                              )}
                             </div>
-                          ) : (
-                            position.distances.run.includes('|') ? (
-                              <div className="distance-item triathlon">
-                                <span className="discipline-icon">
-                                  <FaRunning />
-                                </span>
-                                <span className="distance">3+ mi</span>
-                                <span className="separator">|</span>
-                                <span className="discipline-icon">
-                                  <FaRunning />
-                                </span>
-                                <span className="distance">6+ mi</span>
-                                <span className="separator">|</span>
-                                <span className="discipline-icon">
-                                  <FaRunning />
-                                </span>
-                                <span className="distance">13+ mi</span>
-                              </div>
-                            ) : (
-                              <div className="distance-item">
-                                <span className="discipline-icon">
-                                  <FaRunning />
-                                </span>
-                                <span className="distance">{position.distances.run}</span>
-                              </div>
-                            )
+                          </div>
+                          {position.time && (
+                            <div className="time-display">
+                              <span className="discipline-icon"><FaClock /></span>
+                              <span className="time">{position.time}</span>
+                            </div>
                           )}
-                        </div>
+                        </>
                       )}
                     </div>
                   ))}

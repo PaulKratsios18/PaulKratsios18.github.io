@@ -2351,10 +2351,7 @@ main {
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 0.5rem;
-    width: 100%;
+  width: 100%;
 }
 
 .distance-item {
@@ -2679,4 +2676,92 @@ main {
 .event-logo,
 .event-logo img {
   transition: none;
+}
+
+.time-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0.5rem;
+  width: fit-content;
+}
+
+.time-display .discipline-icon {
+  color: var(--accent-copper);
+  font-size: 0.9rem;
+}
+
+.time-display .time {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .time-display {
+    padding: 0.4rem 0.75rem;
+  }
+  
+  .time-display .discipline-icon {
+    font-size: 0.85rem;
+  }
+  
+  .time-display .time {
+    font-size: 0.8rem;
+  }
+}
+
+.distance-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0.5rem;
+  width: fit-content;
+  min-width: min-content;
+}
+
+.distance-item.triathlon {
+  width: auto;
+  min-width: min-content;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.discipline-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.distance-item .discipline-icon {
+  color: var(--accent-copper);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.distance-item .distance {
+  font-size: min(0.85rem, calc(12vw / var(--distance-count, 3)));
+  color: var(--text-color);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.distance-item .separator {
+  color: var(--text-muted);
+  margin: 0 0.25rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .distance-item .distance {
+    font-size: min(0.8rem, calc(10vw / var(--distance-count, 3)));
+  }
 }
