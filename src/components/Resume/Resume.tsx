@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { FaEye, FaDownload } from 'react-icons/fa';
 
 const Resume = () => {
-  const RESUME_URL = 'https://drive.google.com/file/d/1orcZksRQa96mAfZUjKiqLhYpv7n6zaXB/view';
-  const DOWNLOAD_URL = 'https://drive.google.com/uc?export=download&id=1orcZksRQa96mAfZUjKiqLhYpv7n6zaXB';
+  const RESUME_URL = 'https://drive.google.com/file/d/1kYy5ksGrnNnSKpvNjSGVV4uoiRsM1g7A/view?usp=sharing';
+  const DOWNLOAD_URL = 'https://drive.google.com/uc?export=download&id=1kYy5ksGrnNnSKpvNjSGVV4uoiRsM1g7A';
 
   return (
     <section id="resume" className="resume-section">
