@@ -48,7 +48,7 @@ const Extracurriculars = () => {
           ]
         },
       ],
-      image: '/assets/images/profile/profile3.jpg',
+      image: '/assets/images/extracurriculars/thetaXi_1.png',
     },
     {
       title: 'Eagle Scout',
@@ -75,7 +75,7 @@ const Extracurriculars = () => {
           ]
         }
       ],
-      image: '/assets/images/profile/profile3.jpg'
+      image: '/assets/images/extracurriculars/eagleScout_1.png'
     }
   ];
 
@@ -88,7 +88,7 @@ const Extracurriculars = () => {
         date: 'Fall 2020 - Spring 2025',
         bullets: []
       }],
-      image: '/assets/images/profile/profile3.jpg'
+      image: '/assets/images/extracurriculars/hockey_1.png'
     },
     {
       title: 'Spartan Trifecta',
@@ -101,7 +101,7 @@ const Extracurriculars = () => {
           run: '3+ mi | 6+ mi | 13+ mi'
         }
       }],
-      image: '/assets/images/profile/profile3.jpg'
+      image: '/assets/images/extracurriculars/spartanTrifecta_1.png'
     },
     {
       title: 'IRONMAN 70.3 MUSSELMAN',
@@ -116,7 +116,7 @@ const Extracurriculars = () => {
           run: '13.1 mi'
         }
       }],
-      image: '/assets/images/profile/profile3.jpg'
+      image: '/assets/images/extracurriculars/IM70.3Musselman_1.png'
     },
     {
       title: 'Helderberg to Hudson HM',
@@ -129,7 +129,7 @@ const Extracurriculars = () => {
           run: '13.1 miles'
         }
       }],
-      image: '/assets/images/profile/profile3.jpg'
+      image: '/assets/images/extracurriculars/helderbergToHudson_1.png'
     },
     {
       title: 'IRONMAN 70.3 NEW YORK',
@@ -144,7 +144,7 @@ const Extracurriculars = () => {
           run: '13.1 mi'
         }
       }],
-      image: '/assets/images/profile/profile3.jpg'
+      image: '/assets/images/extracurriculars/IM70.3NY_1.png'
     },
     {
       title: 'Spartan Beast',
@@ -157,7 +157,7 @@ const Extracurriculars = () => {
           run: '13+ miles'
         }
       }],
-      image: '/assets/images/profile/profile3.jpg'
+      image: '/assets/images/extracurriculars/spartanBeast_1.png'
     }
   ];
 
@@ -180,6 +180,7 @@ const Extracurriculars = () => {
                 className="extracurricular-card leadership-card"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.02 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
@@ -232,6 +233,7 @@ const Extracurriculars = () => {
                 className="extracurricular-card athletic-card"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.02 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >

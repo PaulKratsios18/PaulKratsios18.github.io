@@ -5,6 +5,7 @@ import GraphemeSplitter from 'grapheme-splitter';
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { Engine } from "tsparticles-engine";
+import { FaLinkedin } from 'react-icons/fa';
 
 const About = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -86,6 +87,10 @@ const About = () => {
 
     return () => clearInterval(imageInterval);
   }, [imagesLoaded.length]);
+
+  const handleLinkedInClick = () => {
+    window.open('https://www.linkedin.com/in/paulkratsios/', '_blank');
+  };
 
   return (
     <section id="about" className="about-section">
@@ -176,6 +181,10 @@ const About = () => {
               transition={{ delay: 0.5 }}
             >
               <a href="#projects" className="primary-btn">View Projects</a>
+              <button onClick={handleLinkedInClick} className="primary-btn copper-gradient">
+                <FaLinkedin className="btn-icon" />
+                Connect on LinkedIn
+              </button>
             </motion.div>
           </div>
           <div className="about-image">

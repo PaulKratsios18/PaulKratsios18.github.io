@@ -3,18 +3,8 @@ import { motion } from 'framer-motion';
 import { FaEye, FaDownload } from 'react-icons/fa';
 
 const Resume = () => {
-  const handleViewResume = () => {
-    window.open('/assets/documents/PaulKratsios_Resume.pdf', '_blank');
-  };
-
-  const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/assets/documents/PaulKratsios_Resume.pdf';
-    link.download = 'PaulKratsios_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  const RESUME_URL = 'https://drive.google.com/file/d/1orcZksRQa96mAfZUjKiqLhYpv7n6zaXB/view';
+  const DOWNLOAD_URL = 'https://drive.google.com/uc?export=download&id=1orcZksRQa96mAfZUjKiqLhYpv7n6zaXB';
 
   return (
     <section id="resume" className="resume-section">
@@ -43,22 +33,26 @@ const Resume = () => {
               </p>
             </div>
             
-            <div className="resume-actions">
-              <button 
-                className="resume-btn view-btn"
-                onClick={handleViewResume}
-              >
-                <FaEye className="btn-icon" />
-                <span>View Resume</span>
-              </button>
-              
-              <button 
-                className="resume-btn download-btn"
-                onClick={handleDownloadResume}
+            <div className="cta-buttons">
+              <a 
+                href={DOWNLOAD_URL}
+                className="blue-gradient"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaDownload className="btn-icon" />
-                <span>Download Resume</span>
-              </button>
+                Download Resume
+              </a>
+              
+              <a 
+                href={RESUME_URL}
+                className="secondary-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaEye className="btn-icon" />
+                View Resume
+              </a>
             </div>
           </div>
         </motion.div>
