@@ -107,6 +107,14 @@ const Projects = () => {
       technologies: ['Python', 'OpenCV', 'Machine Learning', 'Computer Vision'],
       // image: '/assets/images/hockey/tracking.png',
       github: 'https://github.com/PaulKratsios18/HockeyPuckTrackingSystem'
+    },
+    {
+      title: 'Space Invaders Game',
+      description: 'A classic Space Invaders game built using Python and Pygame.',
+      detailedDescription: 'A simple implementation of the classic Space Invaders game using Python and Pygame. The game features a player-controlled spaceship and waves of descending aliens.',
+      technologies: ['Python', 'Pygame'],
+      image: 'assets/images/spaceinvaders/thumbnail.png',
+      github: 'https://github.com/PaulKratsios18/SpaceInvaders'
     }
   ];
 
