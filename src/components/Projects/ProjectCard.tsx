@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaTimes, FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa';
+import SpaceInvadersGame from './SpaceInvadersGame.tsx';
+import SpaceInvadersPreview from './SpaceInvadersPreview.tsx';
 
 interface ProjectCardProps {
   title: string;
@@ -25,6 +27,8 @@ interface ProjectCardProps {
     title: string;
     description: string;
   }>;
+  isPlayable?: boolean;
+  isPreview?: boolean;
 }
 
 const ProjectCard = ({
@@ -39,6 +43,8 @@ const ProjectCard = ({
   github,
   live,
   features = [],
+  isPlayable = false,
+  isPreview = false,
 }: ProjectCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -122,9 +128,13 @@ const ProjectCard = ({
         onClick={() => setIsExpanded(true)}
         style={{ cursor: 'pointer' }}
       >
-        {thumbnailPath && (
+        {isPlayable ? (
+          <div className="project-image" style={{ width: '100%', height: '225px', overflow: 'hidden' }}>
+            <SpaceInvadersPreview width={400} height={225} />
+          </div>
+        ) : (
           <div className="project-image">
-            <img src={thumbnailPath} alt={title} />
+            <img src={thumbnailPath || undefined} alt={title} />
           </div>
         )}
         <div className="project-content">
@@ -187,52 +197,58 @@ const ProjectCard = ({
 
               <h2 className="expanded-title">{title}</h2>
 
-              {hasMedia && mediaItems.length > 0 && (
-                <div className="media-carousel">
-                  {mediaItems.length > 1 && (
-                    <>
-                      <button className="carousel-button prev" onClick={prevSlide}>
-                        <FaChevronLeft />
-                      </button>
-                      <button className="carousel-button next" onClick={nextSlide}>
-                        <FaChevronRight />
-                      </button>
-                    </>
-                  )}
-                  
-                  <div className="media-container">
-                    {isVideo(mediaItems[currentSlide].url, mediaItems[currentSlide].type) ? (
-                      <div className="media-wrapper">
-                        {renderMedia(
-                          mediaItems[currentSlide].url, 
-                          mediaItems[currentSlide].type,
-                          `${title} - ${mediaItems[currentSlide].caption || 'video'}`
-                        )}
-                      </div>
-                    ) : (
-                      <div className="media-wrapper">
-                        <img 
-                          src={mediaItems[currentSlide].url} 
-                          alt={`${title} - ${currentSlide + 1}`} 
-                        />
-                        {mediaItems[currentSlide].caption && (
-                          <p className="media-caption">{mediaItems[currentSlide].caption}</p>
-                        )}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="media-indicators">
-                    {mediaItems.map((_, index) => (
-                      <button
-                        key={index}
-                        className={`indicator ${currentSlide === index ? 'active' : ''}`}
-                        onClick={() => handleIndicatorClick(index)}
-                        aria-label={`View media ${index + 1}`}
-                      />
-                    ))}
-                  </div>
+              {isPlayable ? (
+                <div className="game-container">
+                  <SpaceInvadersGame width={800} height={600} isPreview={false} />
                 </div>
+              ) : (
+                hasMedia && mediaItems.length > 0 && (
+                  <div className="media-carousel">
+                    {mediaItems.length > 1 && (
+                      <>
+                        <button className="carousel-button prev" onClick={prevSlide}>
+                          <FaChevronLeft />
+                        </button>
+                        <button className="carousel-button next" onClick={nextSlide}>
+                          <FaChevronRight />
+                        </button>
+                      </>
+                    )}
+                    
+                    <div className="media-container">
+                      {isVideo(mediaItems[currentSlide].url, mediaItems[currentSlide].type) ? (
+                        <div className="media-wrapper">
+                          {renderMedia(
+                            mediaItems[currentSlide].url, 
+                            mediaItems[currentSlide].type,
+                            `${title} - ${mediaItems[currentSlide].caption || 'video'}`
+                          )}
+                        </div>
+                      ) : (
+                        <div className="media-wrapper">
+                          <img 
+                            src={mediaItems[currentSlide].url} 
+                            alt={`${title} - ${currentSlide + 1}`} 
+                          />
+                          {mediaItems[currentSlide].caption && (
+                            <p className="media-caption">{mediaItems[currentSlide].caption}</p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="media-indicators">
+                      {mediaItems.map((_, index) => (
+                        <button
+                          key={index}
+                          className={`indicator ${currentSlide === index ? 'active' : ''}`}
+                          onClick={() => handleIndicatorClick(index)}
+                          aria-label={`View media ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )
               )}
 
               <div className="project-details">

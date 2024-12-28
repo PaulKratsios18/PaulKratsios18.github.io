@@ -2765,3 +2765,215 @@ main {
     font-size: min(0.8rem, calc(10vw / var(--distance-count, 3)));
   }
 }
+
+/* Update athletic card padding for better spacing */
+.athletic-card .card-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.athletic-card .position-content {
+  margin-bottom: 0;
+}
+
+/* Resume Section Specific Styles */
+.resume-section {
+  padding: 6rem 0;
+  position: relative;
+}
+
+.resume-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.resume-card {
+  background: var(--card-background);
+  border-radius: 1rem;
+  padding: 3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  min-height: fit-content;
+}
+
+.resume-content {
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.resume-description {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resume-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.resume-btn {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 0.5rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 160px;
+  justify-content: center;
+}
+
+.resume-btn:hover {
+  color: var(--background-color);
+  transform: translateY(-2px);
+}
+
+.resume-btn svg {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .resume-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .resume-btn {
+    width: 100%;
+  }
+}
+
+.copper-gradient {
+  background: linear-gradient(45deg, var(--accent-copper) 0%, var(--accent-copper-dark) 100%) !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.copper-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 147, 123, 0.3);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+/* Update existing cta-buttons styles */
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cta-buttons a,
+.cta-buttons button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.blue-gradient {
+  background: linear-gradient(45deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+  border: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: white !important;
+}
+
+.blue-gradient .btn-icon {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+  color: white !important;
+}
+
+/* Remove any conflicting resume button styles */
+.resume-buttons,
+.resume-btn,
+.resume-actions {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  
+  .cta-buttons a {
+    width: auto;
+  }
+}
+
+.secondary-btn.copper-accent {
+  border-color: var(--accent-copper);
+  color: var(--accent-copper);
+}
+
+.secondary-btn.copper-accent:hover {
+  background: linear-gradient(45deg, var(--accent-copper) 0%, var(--accent-copper-dark) 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 147, 123, 0.3);
+}
+
+.secondary-btn.copper-accent .btn-icon {
+  color: var(--accent-copper);
+}
+
+.secondary-btn.copper-accent:hover .btn-icon {
+  color: white;
+}
+
+
+.game-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}

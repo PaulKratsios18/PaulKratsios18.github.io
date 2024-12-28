@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import SpaceInvadersGame from './SpaceInvadersGame.tsx';
 
 interface ExpandedProjectCardProps {
   title: string;
@@ -116,6 +117,12 @@ const ExpandedProjectCard = ({
             )}
           </div>
         </div>
+
+        {title === 'Space Invaders Game' && (
+          <div className="game-container">
+            <SpaceInvadersGame width={800} height={600} />
+          </div>
+        )}
       </motion.div>
     </motion.div>
   );

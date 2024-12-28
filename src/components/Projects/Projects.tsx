@@ -93,6 +93,17 @@ const Projects = () => {
       github: 'https://github.com/PaulKratsios18/HiroFit'
     },
     {
+      title: 'Space Invaders Game',
+      description: 'A classic Space Invaders game. CLICK TO PLAY NOW!',
+      detailedDescription: 'A simple implementation of the classic Space Invaders game, originally built using Python and Pygame, modified to be played in the browser using TS, React, and Canvas.\
+      The game features a player-controlled spaceship and waves of descending enemies.',
+      technologies: ['TypeScript', 'React', 'Canvas', 'Python', 'Pygame'],
+      image: 'assets/images/spaceinvaders/thumbnail.png',
+      github: 'https://github.com/PaulKratsios18/SpaceInvaders',
+      isPlayable: true,
+      isPreview: true
+    },
+    {
       title: 'Adaptive Agents in Uncertain Environments',
       description: 'Research project exploring reinforcement learning agents\' adaptation to uncertainty in variations of the Monty Hall problem.',
       detailedDescription: 'A dual-learning algorithm enables agents to optimize their decision-making while modeling the cognitive traits of other agents. The project includes analysis of different decision-making strategies in uncertain environments.',
@@ -107,14 +118,6 @@ const Projects = () => {
       technologies: ['Python', 'OpenCV', 'Machine Learning', 'Computer Vision'],
       // image: '/assets/images/hockey/tracking.png',
       github: 'https://github.com/PaulKratsios18/HockeyPuckTrackingSystem'
-    },
-    {
-      title: 'Space Invaders Game',
-      description: 'A classic Space Invaders game built using Python and Pygame.',
-      detailedDescription: 'A simple implementation of the classic Space Invaders game using Python and Pygame. The game features a player-controlled spaceship and waves of descending aliens.',
-      technologies: ['Python', 'Pygame'],
-      image: 'assets/images/spaceinvaders/thumbnail.png',
-      github: 'https://github.com/PaulKratsios18/SpaceInvaders'
     }
   ];
 
