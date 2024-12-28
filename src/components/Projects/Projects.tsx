@@ -117,7 +117,7 @@ const Projects = () => {
       detailedDescription: 'Leverages advanced image processing and machine learning techniques for precise puck detection and tracking. The system includes stick movement analysis for comprehensive training insights and features a user-friendly interface for visualizing tracking results.',
       technologies: ['Python', 'OpenCV', 'Machine Learning', 'Computer Vision'],
       // image: '/assets/images/hockey/tracking.png',
-      github: 'https://github.com/PaulKratsios18/HockeyPuckTrackingSystem'
+      github: 'https://github.com/PaulKratsios18/HockeyPuckTracking'
     }
   ];
 
