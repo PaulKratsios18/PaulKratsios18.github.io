@@ -68,20 +68,12 @@ const Projects = () => {
       description: 'A machine learning system that predicts stock market sentiment and price movements by analyzing textual content and market metrics.',
       detailedDescription: 'StockSense combines natural language processing and machine learning to analyze stock market sentiment and predict price movements. Using features like unigrams, bigrams, sentiment scores, and numerical market metrics (volume, price data), it achieves up to 74.90% accuracy in sentiment analysis using Random Forest classification. The system demonstrates that combining sentiment analysis with market metrics provides more balanced predictions for both price increases and decreases.',
       technologies: ['Python', 'Machine Learning', 'Natural Language Processing', 'NLTK', 'scikit-learn', 'Data Analysis'],
-      image: 'assets/images/stocksense/stocksense.png',
+      image: 'assets/images/stock-sense/StockSense.jpg',
       github: 'https://github.com/PaulKratsios18/StockSense',
       additionalImages: [
         {
-          url: 'assets/images/stocksense/stocksense.png',
+          url: 'assets/images/stock-sense/StockSense.jpg',
           caption: 'StockSense Architecture'
-        },
-        {
-          url: 'assets/images/stocksense/confusion_matrix.png',
-          caption: 'Model Performance Confusion Matrix'
-        },
-        {
-          url: 'assets/images/stocksense/feature_importance.png',
-          caption: 'Feature Importance Analysis'
         }
       ],
       features: [
