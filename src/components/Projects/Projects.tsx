@@ -63,6 +63,34 @@ const Projects = () => {
       ]
     },
     {
+      title: 'Adaptive Agents in Uncertain Environments',
+      description: 'Research project exploring reinforcement learning agents\' adaptation to uncertainty in variations of the Monty Hall problem.',
+      detailedDescription: 'A dual-learning algorithm enables agents to optimize their decision-making while modeling the cognitive traits of other agents. The project includes analysis of different decision-making strategies in uncertain environments.',
+      technologies: ['Python', 'TensorFlow', 'Reinforcement Learning', 'Probability Theory'],
+      image: 'assets/images/adaptive-agents/The-Monty-Hall-Problem.png',
+      github: 'https://github.com/PaulKratsios18/AdaptiveAgents',
+      additionalImages: [
+        {
+          url: 'assets/images/adaptive-agents/The-Monty-Hall-Problem.png',
+          caption: 'The Monty Hall Problem'
+        }
+      ]
+    },
+    {
+      title: 'Hockey Puck Tracking System',
+      description: 'A sophisticated computer vision system designed to track hockey pucks and analyze stick movements in real-time.',
+      detailedDescription: 'Leverages advanced image processing and machine learning techniques for precise puck detection and tracking. The system includes stick movement analysis for comprehensive training insights and features a user-friendly interface for visualizing tracking results.',
+      technologies: ['Python', 'OpenCV', 'Machine Learning', 'Computer Vision'],
+      image: 'assets/images/hockey-puck-tracking/hockey-puck-tracking.jpg',
+      github: 'https://github.com/PaulKratsios18/HockeyPuckTracking',
+      additionalImages: [
+        {
+          url: 'assets/images/hockey-puck-tracking/hockey-puck-tracking.jpg',
+          caption: 'Hockey Puck Tracking'
+        }
+      ]
+    },
+    {
       title: 'HiroFit',
       description: 'A machine learning-based fitness app that utilizes computer vision to track workouts and provide real-time improvement tips.',
       detailedDescription: 'Led iOS frontend development for HiroFit, creating a user-friendly interface for workout tracking. The app uses computer vision to monitor movements and provides personalized feedback based on performance.',
@@ -95,29 +123,12 @@ const Projects = () => {
     {
       title: 'Space Invaders Game',
       description: 'A classic Space Invaders game. CLICK TO PLAY NOW!',
-      detailedDescription: 'A simple implementation of the classic Space Invaders game, originally built using Python and Pygame, modified to be played in the browser using TS, React, and Canvas.\
-      The game features a player-controlled spaceship and waves of descending enemies.',
+      detailedDescription: 'A simple implementation of the classic Space Invaders game, originally built using Python and Pygame, modified to be played in the browser using TS, React, and Canvas. The game features a player-controlled spaceship and waves of descending enemies.',
       technologies: ['TypeScript', 'React', 'Canvas', 'Python', 'Pygame'],
       image: 'assets/images/spaceinvaders/thumbnail.png',
       github: 'https://github.com/PaulKratsios18/SpaceInvaders',
       isPlayable: true,
       isPreview: true
-    },
-    {
-      title: 'Adaptive Agents in Uncertain Environments',
-      description: 'Research project exploring reinforcement learning agents\' adaptation to uncertainty in variations of the Monty Hall problem.',
-      detailedDescription: 'A dual-learning algorithm enables agents to optimize their decision-making while modeling the cognitive traits of other agents. The project includes analysis of different decision-making strategies in uncertain environments.',
-      technologies: ['Python', 'TensorFlow', 'Reinforcement Learning', 'Probability Theory'],
-      // image: '/assets/images/agents/agentlearning.png',
-      github: 'https://github.com/PaulKratsios18/AdaptiveAgentsInUncertainEnvironments'
-    },
-    {
-      title: 'Hockey Puck Tracking System',
-      description: 'A sophisticated computer vision system designed to track hockey pucks and analyze stick movements in real-time.',
-      detailedDescription: 'Leverages advanced image processing and machine learning techniques for precise puck detection and tracking. The system includes stick movement analysis for comprehensive training insights and features a user-friendly interface for visualizing tracking results.',
-      technologies: ['Python', 'OpenCV', 'Machine Learning', 'Computer Vision'],
-      // image: '/assets/images/hockey/tracking.png',
-      github: 'https://github.com/PaulKratsios18/HockeyPuckTracking'
     }
   ];
 

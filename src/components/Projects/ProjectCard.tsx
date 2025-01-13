@@ -120,6 +120,12 @@ const ProjectCard = ({
     );
   };
 
+  const getImageClassName = () => {
+    if (title === 'HiroFit') return 'project-image project-image-contain';
+    if (title === 'Dinder') return 'project-image project-image-contain-slight';
+    return 'project-image';
+  };
+
   return (
     <>
       <motion.div
@@ -129,11 +135,11 @@ const ProjectCard = ({
         style={{ cursor: 'pointer' }}
       >
         {isPlayable ? (
-          <div className="project-image" style={{ width: '100%', height: '225px', overflow: 'hidden' }}>
+          <div className="project-image">
             <SpaceInvadersPreview width={400} height={225} />
           </div>
         ) : (
-          <div className="project-image">
+          <div className={getImageClassName()}>
             <img src={thumbnailPath || undefined} alt={title} />
           </div>
         )}

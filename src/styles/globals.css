@@ -297,20 +297,37 @@ section h2 {
   border-top: 4px solid var(--accent-copper);
 }
 
+/* Project Card Image Styles */
 .project-card .project-image {
   width: 100%;
-  height: 200px;
+  height: 225px;
+  border-radius: 12px;
   overflow: hidden;
-  border-radius: 8px 8px 0 0;
   position: relative;
+  background: var(--card-background);
 }
 
-.project-card .project-image img,
-.project-card .project-image video {
+.project-card .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  padding: 0;
   background-color: var(--card-background);
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+}
+
+/* Optional: Add hover effect */
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+/* Update the game container to match the styling */
+.project-image .game-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .project-content {
@@ -1018,6 +1035,8 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .media-wrapper iframe,
@@ -1027,7 +1046,8 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  border: none;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .media-wrapper img {
