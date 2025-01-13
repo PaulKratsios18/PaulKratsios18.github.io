@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard.tsx';
+import { title } from 'process';
 
 const Projects = () => {
   const projects = [
@@ -62,6 +63,46 @@ const Projects = () => {
         }
       ]
     },
+    { 
+      title: 'StockSense',
+      description: 'A machine learning system that predicts stock market sentiment and price movements by analyzing textual content and market metrics.',
+      detailedDescription: 'StockSense combines natural language processing and machine learning to analyze stock market sentiment and predict price movements. Using features like unigrams, bigrams, sentiment scores, and numerical market metrics (volume, price data), it achieves up to 74.90% accuracy in sentiment analysis using Random Forest classification. The system demonstrates that combining sentiment analysis with market metrics provides more balanced predictions for both price increases and decreases.',
+      technologies: ['Python', 'Machine Learning', 'Natural Language Processing', 'NLTK', 'scikit-learn', 'Data Analysis'],
+      image: 'assets/images/stocksense/stocksense.png',
+      github: 'https://github.com/PaulKratsios18/StockSense',
+      additionalImages: [
+        {
+          url: 'assets/images/stocksense/stocksense.png',
+          caption: 'StockSense Architecture'
+        },
+        {
+          url: 'assets/images/stocksense/confusion_matrix.png',
+          caption: 'Model Performance Confusion Matrix'
+        },
+        {
+          url: 'assets/images/stocksense/feature_importance.png',
+          caption: 'Feature Importance Analysis'
+        }
+      ],
+      features: [
+        {
+          title: "Sentiment Analysis",
+          description: "Achieves 74.90% accuracy in market sentiment classification using Random Forest"
+        },
+        {
+          title: "Multi-Feature Analysis",
+          description: "Combines textual sentiment with market metrics for balanced predictions"
+        },
+        {
+          title: "Data Pipeline",
+          description: "Processes both textual content and numerical market data through preprocessing and feature extraction"
+        },
+        {
+          title: "Performance Metrics",
+          description: "Comprehensive evaluation using accuracy, precision, recall, and F1-score metrics"
+        }
+      ]
+    },
     {
       title: 'Adaptive Agents in Uncertain Environments',
       description: 'Research project exploring reinforcement learning agents\' adaptation to uncertainty in variations of the Monty Hall problem.',
@@ -73,6 +114,24 @@ const Projects = () => {
         {
           url: 'assets/images/adaptive-agents/The-Monty-Hall-Problem.png',
           caption: 'The Monty Hall Problem'
+        }
+      ],
+      features: [
+        {
+          title: "Angelic Q-Learning Agent",
+          description: "An optimistic agent that assumes the best possible outcomes and learns accordingly"
+        },
+        {
+          title: "Hell Q-Learning Agent", 
+          description: "A pessimistic agent that assumes worst-case scenarios in its learning process"
+        },
+        {
+          title: "Multi-Agent Reinforcement Learning",
+          description: "Implementation of Q-Learning in a multi-agent setting where agents learn to interact"
+        },
+        {
+          title: "Interactive User Play",
+          description: "Allows users to play against trained agents and test different strategies"
         }
       ]
     },
